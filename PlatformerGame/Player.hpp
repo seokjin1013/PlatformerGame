@@ -62,7 +62,6 @@ void Player::move_box_collision(Vec2<double>& velocity) {
     }
     pos = pos0 + velocity * min_collision_point;
     if (min_collision_point < 1) {
-        velocity *= (1 - min_collision_point);
         if (collision_direction & 1)
             velocity.y = 0;
         else

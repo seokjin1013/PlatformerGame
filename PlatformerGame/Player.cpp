@@ -33,13 +33,10 @@ void Player::step() {
     }
     else {
         if (check_box_collision<Bullet>(Vec2<double>{0, 0})) PlayManager::instance().set_room(PlayManager::instance().get_room());
-
         player_pos_list.push_front(pos);
         if (time_recall_sleep > 0) time_recall_sleep--;
         if (time_recall_gauge < 100 && time_recall_sleep == 0) time_recall_gauge += 0.125;
         if (player_pos_list.size() > 300) player_pos_list.pop_back();
-        
-
     }
 
     //velocity calculate

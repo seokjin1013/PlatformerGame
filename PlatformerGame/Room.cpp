@@ -30,15 +30,3 @@ void Room::step() {
 const std::deque<Object*>& Room::get_pool() const {
     return pool;
 }
-
-const ViewInfo& Room::get_view_info() const {
-    return view_info;
-}
-
-void Room::set_view_info_pos(const Vec2<double>& pos) {
-    view_info.pos = pos;
-}
-
-void Room::set_view_info_size(const Vec2<double>& size) {
-    view_info.size = size;
-}

@@ -17,13 +17,30 @@ void View::clear() {
 
 void View::draw(const Room& room) {
     const auto& pool = room.get_pool();
-    const auto& view_info = room.get_view_info();
-    size = view_info.size;
+    const auto& view = room.view_info;
+    size = view.size;
     size.x *= 2;
     for (const auto* e : pool) {
         const auto& pos = e->get_pos();
         const auto& sprite_info = e->get_sprite_info();
-        clear_rendering2(sprite_info, pos - view_info.pos + view_info.size / 2);
+        clear_rendering2(sprite_info, pos - view.pos + view.size / 2);
+    }
+    if (view.time_recall_gauge_show >= 1) {
+        int border = size.y / 5;
+        int thinness = view.time_recall_gauge_show == 2 ? 8 : 3;
+        for (int i = border * 2; i <= size.x - border * 2; ++i) {
+            alpha_board[utility::get_index(size, size.y - border - thinness / 2, i)] = 255;
+            alpha_board[utility::get_index(size, size.y - border - thinness / 2 + thinness - 1, i)] = 255;
+        }
+        for (int i = size.y - border - thinness / 2; i <= size.y - border - thinness / 2 + thinness - 1; ++i) {
+            alpha_board[utility::get_index(size, i, border * 2)] = 255;
+            alpha_board[utility::get_index(size, i, size.x - border * 2)] = 255;
+            alpha_board[utility::get_index(size, i, border * 2 + 1)] = 255;
+            alpha_board[utility::get_index(size, i, size.x - border * 2 - 1)] = 255;
+        }
+        for (int i = border * 2 + 2; i <= utility::lerp<int>(border * 2 + 2, size.x - border * 2 - 2, view.time_recall_gauge_rate); ++i)
+            for (int j = size.y - border - thinness / 2; j <= size.y - border - thinness / 2 + thinness - 1; ++j)
+                alpha_board[utility::get_index(size, j, i)] = min(255, alpha_board[utility::get_index(size, j, i)] + 180);
     }
 }
 

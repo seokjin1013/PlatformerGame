@@ -21,5 +21,5 @@ inline T utility::median(const T& x1, const T& x2, const T& x3) {
 
 template <typename T>
 inline T utility::lerp(const T& x1, const T& x2, double val) {
-    return x1 + (x2 - x1) * val;
+    return static_cast<T>(x1 + (x2 - x1) * val);
 }

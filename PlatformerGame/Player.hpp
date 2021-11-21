@@ -29,8 +29,11 @@ private:
     double speed = 0.9, force = 0.15, gravity = 0.05, jump = 1.5;
 
     int time_recall_sleep = 0;
-    double time_recall_gauge = 0.0;
+    int time_recall_gauge = 0;
+    int time_recall_sleep_max = 90;
+    int time_recall_gauge_max = 200;
     std::deque<Vec2<double>> player_pos_list;
+    std::deque<Vec2<double>> player_velocity_list;
 
     int image_delay = 10;
     int image_remaining_delay = 0;

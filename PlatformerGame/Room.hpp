@@ -14,6 +14,8 @@ struct ViewInfo {
     int quake_intensity = 0;
     int time_recall_gauge_show = 0;
     double time_recall_gauge_rate = 0;
+    double time_recall_effect_strength = 0;
+    double time_recall_effect_period = 0;
 };
 
 class Room {

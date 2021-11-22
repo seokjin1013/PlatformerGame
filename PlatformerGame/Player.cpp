@@ -45,7 +45,7 @@ void Player::step() {
 
         //time recall info setting
         if (time_recall_sleep == 0)
-            time_recall_gauge = min(time_recall_gauge_max, time_recall_gauge + 1);
+            time_recall_gauge = min(time_recall_gauge_max, time_recall_gauge + 2);
         else
             --time_recall_sleep;
         player_pos_list.push_front(pos);
@@ -90,10 +90,21 @@ void Player::step() {
     view_pos_target = pos;
     view.pos = utility::lerp<Vec2<double>>(view.pos, view_pos_target, 0.02);
     view.size = utility::lerp<Vec2<double>>(view.size, view_size_target, 0.02);
-    view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;
-    if (Controller::instance().key_down(VK_SPACE)) view.time_recall_gauge_show = 2;
-    else if (time_recall_gauge < time_recall_gauge_max) view.time_recall_gauge_show = 1;
-    else view.time_recall_gauge_show = 0;
+    if (Controller::instance().key_down(VK_SPACE)) {
+        view.time_recall_gauge_show = 2;
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 3, 0.2);
+        view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;
+        view.time_recall_effect_period = fmod(view.time_recall_effect_period + 0.02, 1);
+    }
+    else if (time_recall_gauge < time_recall_gauge_max) {
+        view.time_recall_gauge_show = 1;
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.2);
+        view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;
+    }
+    else {
+        view.time_recall_gauge_show = 0;
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.2);
+    }
 
     stringstream ss;
     ss << time_recall_gauge << ' ' << time_recall_sleep;

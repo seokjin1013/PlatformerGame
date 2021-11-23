@@ -18,8 +18,7 @@ View::~View() {
 void View::clear() {
     memset(alpha_board, 0, MAX_RESOLUTION.area() * 2 * sizeof(int));
     memset(alpha_board_init, 0, (MAX_RESOLUTION + MAX_RESOLUTION_BOARDER * 2 * 2).area() * 2 * sizeof(int));
-    for (int i = 0; i < MAX_RESOLUTION.area() * 2; ++i)
-        filter_board[i].x = 0, filter_board[i].y = 0;
+    fill_n(filter_board, MAX_RESOLUTION.area() * 2, Vec2<double>{ 0, 0 });
 }
 
 void View::draw(const Room& room) {
@@ -67,10 +66,12 @@ void View::draw_sprite(int* board, const Vec2<int>& size, const SpriteInfo& spri
 }
 
 void View::draw_set_filter(int* dst, int* src, const Vec2<int>& border, Vec2<double>* filter_board) {
+    int y, x;
     for (int i = 0; i < size.y; ++i)
         for (int j = 0; j < size.x; ++j) {
-            Vec2<int> pos = Vec2<int>{ j, i } + border + filter_board[utility::get_index(size, i, j)];
-            dst[utility::get_index(size, i, j)] = src[utility::get_index(size + border * 2, pos)];
+            y = i + border.y + static_cast<int>(filter_board[size.x * i + j].y);
+            x = j + border.x + static_cast<int>(filter_board[size.x * i + j].x);
+            dst[size.x * i + j] = src[(size.x + border.x * 2) * y + x];
         }
 }
 
@@ -97,7 +98,7 @@ void View::draw_time_recall_bar(int* board, const ViewInfo& view) {
 void View::apply_filter_time_recall_effect(double strength, double period) {
     for (int i = 0; i < size.y; ++i)
         for (int j = 0; j < size.x; ++j)
-            filter_board[utility::get_index(size, i, j)].x = cos(numbers::pi * 2 * (i / 50.0 + period)) * strength;
+            filter_board[size.x * i + j].x = cos(numbers::pi * 2 * (i / 50.0 + period)) * strength;
 }
 
 const int* View::get_alpha_board() const {

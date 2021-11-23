@@ -122,11 +122,11 @@ void Console::set_alpha_board(const View& view, const Vec2<int>& rep_pos, const 
                 int num = 0, den = 0;
                 int ks = static_cast<int>(i * rep_size.y / view_size.y), ke = static_cast<int>((i + 1) * rep_size.y / view_size.y);
                 int ls = static_cast<int>(j * (rep_size.x * 2) / view_size.x), le = static_cast<int>((j + 1) * (rep_size.x * 2) / view_size.x);
-                num += view_alpha_board[utility::get_index(view_size, i, j)];
+                num += view_alpha_board[view_size.x * i + j];
                 ++den;
                 for (int k = ks; k < ke; ++k)
                     for (int l = ls; l < le; ++l)
-                        alpha_board[utility::get_index(size, rep_pos + Vec2<int>{l, k})] = num / den;
+                        alpha_board[size.x * (rep_pos.y + k) + rep_pos.x + l] = num / den;
             }
     }
     if ((rep_size.x * 2) < view_size.x && rep_size.y >= view_size.y) {
@@ -143,10 +143,6 @@ void Console::set_alpha_board(const View& view, const Vec2<int>& rep_pos, const 
                     alpha_board[utility::get_index(size, rep_pos + Vec2<int>{j, k})] = num / den;
             }
     }
-    //for (int i = 0; i < view_size.y; ++i)
-    //    for (int j = 0; j < view_size.x; ++j) {
-    //        alpha_board[utility::get_index(size, i, j)] += view_alpha_board[utility::get_index(view_size, i, j)];
-    //    }
 }
 
 void Console::set_char_board(const string& str, int y) {

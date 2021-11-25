@@ -92,18 +92,19 @@ void Player::step() {
     view.size = utility::lerp<Vec2<double>>(view.size, view_size_target, 0.02);
     if (Controller::instance().key_down(VK_SPACE)) {
         view.time_recall_gauge_show = 2;
-        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 3, 0.2);
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 1, 0.05);
         view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;
         view.time_recall_effect_period = fmod(view.time_recall_effect_period + 0.02, 1);
+        view.time_recall_effect_focus = pos - Vec2<double>{0.0, SpriteArchive::instance().get_sprite(sprite_info.sprite_index).size.y / 2.0};
     }
     else if (time_recall_gauge < time_recall_gauge_max) {
         view.time_recall_gauge_show = 1;
-        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.2);
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.05);
         view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;
     }
     else {
         view.time_recall_gauge_show = 0;
-        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.2);
+        view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.05);
     }
 
     stringstream ss;

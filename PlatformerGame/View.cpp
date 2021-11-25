@@ -5,20 +5,23 @@ using namespace std;
 View::View() {
     alpha_board = new int[MAX_RESOLUTION.area() * 2];
     alpha_board_init = new int[(MAX_RESOLUTION + MAX_RESOLUTION_BOARDER * 2 * 2).area() * 2];
-    filter_board = new Vec2<double>[MAX_RESOLUTION.area() * 2];
+    filter_board_x = new double[MAX_RESOLUTION.area() * 2];
+    filter_board_y = new double[MAX_RESOLUTION.area() * 2];
     clear();
 }
 
 View::~View() {
     delete[] alpha_board;
     delete[] alpha_board_init;
-    delete[] filter_board;
+    delete[] filter_board_x;
+    delete[] filter_board_y;
 }
 
 void View::clear() {
     memset(alpha_board, 0, MAX_RESOLUTION.area() * 2 * sizeof(int));
     memset(alpha_board_init, 0, (MAX_RESOLUTION + MAX_RESOLUTION_BOARDER * 2 * 2).area() * 2 * sizeof(int));
-    fill_n(filter_board, MAX_RESOLUTION.area() * 2, Vec2<double>{ 0, 0 });
+    memset(filter_board_x, 0, MAX_RESOLUTION.area() * 2 * sizeof(double));
+    memset(filter_board_y, 0, MAX_RESOLUTION.area() * 2 * sizeof(double));
 }
 
 void View::draw(const Room& room) {
@@ -33,8 +36,9 @@ void View::draw(const Room& room) {
         const auto& sprite_info = e->get_sprite_info();
         draw_sprite(alpha_board_init, size + border_size * 2, sprite_info, pos - view.pos + view.size / 2 + MAX_RESOLUTION_BOARDER);
     }
-    apply_filter_time_recall_effect(view.time_recall_effect_strength, view.time_recall_effect_period);
-    draw_set_filter(alpha_board, alpha_board_init, border_size, filter_board);
+    auto focus = view.time_recall_effect_focus - view.pos + view.size / 2;
+    apply_filter_time_recall_effect(view.time_recall_effect_strength, view.time_recall_effect_period, focus.x * 2, focus.y);
+    draw_set_filter(alpha_board, alpha_board_init, border_size, filter_board_x, filter_board_y);
     draw_time_recall_bar(alpha_board, view);
 }
 
@@ -65,12 +69,12 @@ void View::draw_sprite(int* board, const Vec2<int>& size, const SpriteInfo& spri
         }
 }
 
-void View::draw_set_filter(int* dst, int* src, const Vec2<int>& border, Vec2<double>* filter_board) {
+void View::draw_set_filter(int* dst, int* src, const Vec2<int>& border, double* filter_board_x, double* filter_board_y) {
     int y, x;
     for (int i = 0; i < size.y; ++i)
         for (int j = 0; j < size.x; ++j) {
-            y = i + border.y + static_cast<int>(filter_board[size.x * i + j].y);
-            x = j + border.x + static_cast<int>(filter_board[size.x * i + j].x);
+            y = i + border.y + static_cast<int>(filter_board_y[size.x * i + j]);
+            x = j + border.x + static_cast<int>(filter_board_x[size.x * i + j]);
             dst[size.x * i + j] = src[(size.x + border.x * 2) * y + x];
         }
 }
@@ -89,16 +93,27 @@ void View::draw_time_recall_bar(int* board, const ViewInfo& view) {
             board[utility::get_index(size, i, border * 2 + 1)] = 255;
             board[utility::get_index(size, i, size.x - border * 2 - 1)] = 255;
         }
-        for (int i = border * 2 + 2; i <= utility::lerp<int>(border * 2 + 2, size.x - border * 2 - 2, view.time_recall_gauge_rate); ++i)
+        int bar_fill_left = border * 2 + 2;
+        int bar_fill_right = utility::lerp<int>(border * 2 + 2, size.x - border * 2 - 2, view.time_recall_gauge_rate);
+        for (int i = bar_fill_left; i <= bar_fill_right; ++i)
             for (int j = size.y - border - thinness / 2; j <= size.y - border - thinness / 2 + thinness - 1; ++j)
-                board[utility::get_index(size, j, i)] = min(255, board[utility::get_index(size, j, i)] + 180);
+                board[utility::get_index(size, j, i)] = min(255, board[utility::get_index(size, j, i)] + (i - bar_fill_left) * 255 / (bar_fill_right + 1 - bar_fill_left));
     }
 }
 
-void View::apply_filter_time_recall_effect(double strength, double period) {
+void View::apply_filter_time_recall_effect(double strength, double period, double focus_x, double focus_y) {
+    //double max_dist = hypot(max(abs(focus.y - 0), abs(focus.y - size.y)), max(abs(focus.x - 0), abs(focus.x - size.x)));
+    double max_dist = max(abs(focus_y - 0), abs(focus_y - size.y)) + max(abs(focus_x - 0), abs(focus_x - size.x));
+    double dist;
+    double c, s;
     for (int i = 0; i < size.y; ++i)
-        for (int j = 0; j < size.x; ++j)
-            filter_board[size.x * i + j].x = cos(numbers::pi * 2 * (i / 50.0 + period)) * strength;
+        for (int j = 0; j < size.x; ++j) {
+            dist = ((focus_y - i) > 0 ? focus_y - i : i - focus_y) + ((focus_x - j) > 0 ? focus_x - j : j - focus_x);
+            c = cos(numbers::pi * 2 * (i / 20.0 + period));
+            s = sin(numbers::pi * 2 * (j / 20.0 / 2 + period));
+            filter_board_x[size.x * i + j] = c * strength * (1 + (dist / max_dist) * 3);
+            filter_board_y[size.x * i + j] = s * strength / 2 * (1 + (dist / max_dist) * 3);
+        }
 }
 
 const int* View::get_alpha_board() const {

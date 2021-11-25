@@ -3,4 +3,4 @@
 #include "Vec2.hpp"
 
 const Vec2<int> MAX_RESOLUTION = {640, 360};
-const Vec2<int> MAX_RESOLUTION_BOARDER = { 10, 10 };
+const Vec2<int> MAX_RESOLUTION_BOARDER = { 30, 30 };

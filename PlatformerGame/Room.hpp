@@ -16,6 +16,7 @@ struct ViewInfo {
     double time_recall_gauge_rate = 0;
     double time_recall_effect_strength = 0;
     double time_recall_effect_period = 0;
+    Vec2<double> time_recall_effect_focus;
 };
 
 class Room {

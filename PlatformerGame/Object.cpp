@@ -48,7 +48,9 @@ int Object::get_box_collision_direction(const Vec2<double>& velocity, const Obje
     if (velocity.x < 0 && velocity.y < 0) {
         auto ltpos = pos - spr.center;
         auto o_rbpos = other->pos - o_spr.center + o_spr.size;
-        if ((o_rbpos - ltpos).cross(ltpos + velocity - o_rbpos) <= 0) return 3;
+        auto ccw = (o_rbpos - ltpos).cross(ltpos + velocity - o_rbpos);
+        if (ccw < 0) return 3;
+        if (ccw == 0) return -1;
         return 2;
     }
     if (velocity.x > 0 && velocity.y < 0) {

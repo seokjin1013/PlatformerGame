@@ -6,7 +6,7 @@
 #include <thread>
 #include <vector>
 #include "Block.hpp"
-#include "Bullet_shooter.hpp"
+#include "BulletShooter.hpp"
 #include "Bullet.hpp"
 #include "Battery.hpp"
 #include "Key.hpp"
@@ -14,8 +14,10 @@
 #include "Controller.hpp"
 #include "Goal.hpp"
 #include "Player.hpp"
-#include "Room.hpp"
 #include "View.hpp"
+#include "Title.hpp"
+#include "MovableBlock.hpp"
+#include "Room.hpp"
 
 class PlayManager final {
 public:

@@ -18,6 +18,70 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Battery0.bmp" />
+    <Image Include="Block0.bmp" />
+    <Image Include="Bullet0.bmp" />
+    <Image Include="BulletShooter_down.bmp" />
+    <Image Include="BulletShooter_left.bmp" />
+    <Image Include="BulletShooter_right.bmp" />
+    <Image Include="BulletShooter_up.bmp" />
+    <Image Include="Button0.bmp" />
+    <Image Include="Goal0.bmp" />
+    <Image Include="Key0.bmp" />
+    <Image Include="MovableBlock0.bmp" />
+    <Image Include="Player0.bmp" />
+    <Image Include="Player1.bmp" />
+    <Image Include="Player2.bmp" />
+    <Image Include="Player3.bmp" />
+    <Image Include="PlayerJump0.bmp" />
+    <Image Include="PlayerJump1.bmp" />
+    <Image Include="Title0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Battery.cpp" />
+    <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletShooter.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="Key.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovableBlock.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayManager.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteImporter.cpp" />
+    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="View.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Utility.inl" />
+    <None Include="Vec2.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Battery.hpp" />
+    <ClInclude Include="Block.hpp" />
+    <ClInclude Include="Bullet.hpp" />
+    <ClInclude Include="BulletShooter.hpp" />
+    <ClInclude Include="Console.hpp" />
+    <ClInclude Include="Constant.hpp" />
+    <ClInclude Include="Controller.hpp" />
+    <ClInclude Include="Goal.hpp" />
+    <ClInclude Include="Key.hpp" />
+    <ClInclude Include="MovableBlock.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="PlayManager.hpp" />
+    <ClInclude Include="Room.hpp" />
+    <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="SpriteImporter.hpp" />
+    <ClInclude Include="Title.hpp" />
+    <ClInclude Include="Utility.hpp" />
+    <ClInclude Include="Vec2.hpp" />
+    <ClInclude Include="View.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -139,66 +203,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Battery.cpp" />
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Bullet_shooter.cpp" />
-    <ClCompile Include="Console.cpp" />
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="Goal.cpp" />
-    <ClCompile Include="Key.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayManager.cpp" />
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteImporter.cpp" />
-    <ClCompile Include="View.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Battery.bmp" />
-    <Image Include="Block.bmp" />
-    <Image Include="bullet.bmp" />
-    <Image Include="bullet_shooter_down.bmp" />
-    <Image Include="bullet_shooter_left.bmp" />
-    <Image Include="bullet_shooter_right.bmp" />
-    <Image Include="bullet_shooter_up.bmp" />
-    <Image Include="Button.bmp" />
-    <Image Include="Goal.bmp" />
-    <Image Include="Key.bmp" />
-    <Image Include="Player0.bmp" />
-    <Image Include="Player1.bmp" />
-    <Image Include="Player2.bmp" />
-    <Image Include="Player3.bmp" />
-    <Image Include="PlayerJump0.bmp" />
-    <Image Include="PlayerJump1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Utility.inl" />
-    <None Include="Vec2.inl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Battery.hpp" />
-    <ClInclude Include="Block.hpp" />
-    <ClInclude Include="Bullet.hpp" />
-    <ClInclude Include="Bullet_shooter.hpp" />
-    <ClInclude Include="Console.hpp" />
-    <ClInclude Include="Constant.hpp" />
-    <ClInclude Include="Controller.hpp" />
-    <ClInclude Include="Goal.hpp" />
-    <ClInclude Include="Key.hpp" />
-    <ClInclude Include="Object.hpp" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="PlayManager.hpp" />
-    <ClInclude Include="Room.hpp" />
-    <ClInclude Include="Sprite.hpp" />
-    <ClInclude Include="SpriteImporter.hpp" />
-    <ClInclude Include="Utility.hpp" />
-    <ClInclude Include="Vec2.hpp" />
-    <ClInclude Include="View.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

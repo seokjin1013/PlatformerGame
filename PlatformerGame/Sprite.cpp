@@ -36,7 +36,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(Block.bmp)");
+        importer.read_bmp24(R"(Block0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::block].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::block].alpha, spr, sizeof(int) * w * h * n);
@@ -46,7 +46,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(bullet_shooter_right.bmp)");
+        importer.read_bmp24(R"(BulletShooter_right.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::bullet_shooter].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::bullet_shooter].alpha, spr, sizeof(int) * w * h * n);
@@ -56,7 +56,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(bullet.bmp)");
+        importer.read_bmp24(R"(Bullet0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::bullet].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::bullet].alpha, spr, sizeof(int) * w * h * n);
@@ -66,7 +66,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(Battery.bmp)");
+        importer.read_bmp24(R"(Battery0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::battery].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::battery].alpha, spr, sizeof(int) * w * h * n);
@@ -76,7 +76,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(Key.bmp)");
+        importer.read_bmp24(R"(Key0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::key].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::key].alpha, spr, sizeof(int) * w * h * n);
@@ -86,13 +86,33 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(Goal.bmp)");
+        importer.read_bmp24(R"(Goal0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::goal].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::goal].alpha, spr, sizeof(int) * w * h * n);
         sprite[(int)SpriteIndex::goal].center = { w / 2, h / 2 };
         sprite[(int)SpriteIndex::goal].size = { w, h };
         sprite[(int)SpriteIndex::goal].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(Title0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::title].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::title].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::title].center = { 0, 0 };
+        sprite[(int)SpriteIndex::title].size = { w, h };
+        sprite[(int)SpriteIndex::title].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(MovableBlock0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::movable_block].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::movable_block].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::movable_block].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::movable_block].size = { w, h };
+        sprite[(int)SpriteIndex::movable_block].number = n;
     }
     {
         int w = 0, h = 0, n = 0;

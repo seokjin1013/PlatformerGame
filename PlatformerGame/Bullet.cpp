@@ -5,6 +5,8 @@ Bullet::Bullet(Room* room, const Vec2<double>& pos) : Object(room, pos) {
 }
 
 void Bullet::step() {
-    if(!check_box_collision<Block>(Vec2<double>{0,0}))pos += {1, 0};
-    else { this->~Bullet(); }
+    if (!check_box_collision<Block>(Vec2<double>{0, 0}))
+        pos += { 1, 0 };
+    else
+        this->~Bullet();
 }

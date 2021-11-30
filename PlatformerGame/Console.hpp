@@ -2,6 +2,7 @@
 
 #include <windows.h>
 #include <string>
+#include "Room.hpp"
 #include "Constant.hpp"
 #include "Utility.hpp"
 #include "Vec2.hpp"

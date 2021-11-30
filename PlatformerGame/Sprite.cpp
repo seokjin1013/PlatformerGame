@@ -66,6 +66,26 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
+        importer.read_bmp24(R"(LaserBlock0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::laser_block].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::laser_block].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::laser_block].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::laser_block].size = { w, h };
+        sprite[(int)SpriteIndex::laser_block].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(Laser0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::laser].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::laser].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::laser].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::laser].size = { w, h };
+        sprite[(int)SpriteIndex::laser].number = n;
+    }
+    {
+        SpriteImporter importer;
         importer.read_bmp24(R"(Battery0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::battery].alpha = new int[w * h * n];

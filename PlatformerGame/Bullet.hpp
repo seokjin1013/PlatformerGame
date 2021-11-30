@@ -3,6 +3,7 @@
 #include "Room.hpp"
 #include "Vec2.hpp"
 #include "Block.hpp"
+#include "Laser.hpp"
 
 class Bullet : public Object {
 public:
@@ -10,4 +11,6 @@ public:
     void step() override;
 private:
     int bullet_rotate;
+    int life = 10800;
+    Vec2<double> velocity;
 };

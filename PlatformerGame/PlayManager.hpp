@@ -8,6 +8,8 @@
 #include "Block.hpp"
 #include "BulletShooter.hpp"
 #include "Bullet.hpp"
+#include "LaserBlock.hpp"
+#include "Laser.hpp"
 #include "Battery.hpp"
 #include "Key.hpp"
 #include "Console.hpp"

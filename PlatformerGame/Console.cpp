@@ -150,7 +150,7 @@ void Console::set_char_board(const string& str, int y) {
 }
 
 void Console::set_char_board_from_alpha_board() {
-    const char* const ascii = "@@@@@@@@@@@@@@@@@@@@@$$$$$$$$$$$$$$$$$$$$$$$$$########BBBB\\\\\\\\\\\\EEEEEEEE96Mg88GGGRRRR555%%%&&&DSSSbbd33PPeNNOaHHHssssqFF444CC22AAZmohKK===ww{{{{XXXXz[[ccVn]]LL???ffT7++++++JJJJJyyvvY))<>xxx______rrrrjjj//*~|^^^!!!!IIIIiii;;;\"\"\"\"::::--,,''''```.......      ";//"$B%8&ZO0QLCJUYX-~<l;:^ `. ";
+    const char* const ascii = R"(@@@@@@@@@@@@@@@@@@@@@$$$$$$$$$$$$$$$$$$$$$$$$$########BBBB\\\\\\EEEEEEEE96Mg88GGGRRRR555%%%&&&DSSSbbd33PPeNNOaHHHssssqFF444CC22AAZmohKK===ww{{{{XXXXz[[ccVn]]LL???ffT7++++++JJJJJyyvvY))<>xxx______rrrrjjj//*~|^^^!!!!IIIIiii;;;""""::::--,,''''```.......      )";
     for (int i = 0; i < size.y; ++i)
         for (int j = 0; j < size.x; ++j)
             char_board[size.x * i + j] = ascii[255 - alpha_board[size.x * i + j]];

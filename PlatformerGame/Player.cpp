@@ -58,6 +58,7 @@ void Player::step() {
 
         //collide check
         if (check_box_collision<Bullet>(Vec2<double>{0, 0})) PlayManager::instance().set_room(PlayManager::instance().get_room());
+        if (check_box_collision<Laser>(Vec2<double>{0, 0})) PlayManager::instance().set_room(PlayManager::instance().get_room());
         // if(check_box_collision<Battery>(Vec2<double>{0, 0})) score+=1;
     }
 

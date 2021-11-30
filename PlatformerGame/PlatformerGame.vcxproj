@@ -26,6 +26,8 @@
     <Image Include="Button0.bmp" />
     <Image Include="Goal0.bmp" />
     <Image Include="Key0.bmp" />
+    <Image Include="Laser0.bmp" />
+    <Image Include="LaserBlock0.bmp" />
     <Image Include="MovableBlock0.bmp" />
     <Image Include="Player0.bmp" />
     <Image Include="Player1.bmp" />
@@ -44,6 +46,8 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Key.cpp" />
+    <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="LaserBlock.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MovableBlock.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -55,6 +59,7 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Room.inl" />
     <None Include="Utility.inl" />
     <None Include="Vec2.inl" />
   </ItemGroup>
@@ -68,6 +73,8 @@
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="Goal.hpp" />
     <ClInclude Include="Key.hpp" />
+    <ClInclude Include="Laser.hpp" />
+    <ClInclude Include="LaserBlock.hpp" />
     <ClInclude Include="MovableBlock.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="PlayManager.hpp" />

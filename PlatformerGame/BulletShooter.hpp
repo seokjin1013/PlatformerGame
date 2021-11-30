@@ -12,4 +12,5 @@ public:
 private:
     int timer = 0;
     int bullet_rotate = 0;
+    Vec2<double> dpos;
 };

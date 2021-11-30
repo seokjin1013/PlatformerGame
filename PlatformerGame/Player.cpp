@@ -62,8 +62,8 @@ void Player::step() {
     }
 
     //draw
-    if (horizontal_move.direction == -1) sprite_info.image_scale.x = -1;
-    if (horizontal_move.direction == 1) sprite_info.image_scale.x = 1;
+    if (horizontal_move.direction == -1) sprite_info.image_flip_x = true;
+    if (horizontal_move.direction == 1) sprite_info.image_flip_x = false;
     if (step_on) {
         sprite_info.sprite_index = SpriteIndex::player;
         if (horizontal_move.direction != 0) {

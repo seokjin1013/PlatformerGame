@@ -26,6 +26,10 @@ void PlayManager::play() {
             new MovableBlock(&room, Vec2<double>{-30, 0});
             new Key(&room, Vec2<double>{-30, 0});
             new Goal(&room, Vec2<double>{-30, 0}, 1);
+            new BulletShooter(&room, Vec2<double> {30, 0}, 2);
+            new BulletShooter(&room, Vec2<double> {45, 0}, 1);
+            new BulletShooter(&room, Vec2<double> {60, 0}, 0);
+            new BulletShooter(&room, Vec2<double> {45, -20}, 3);
         }
         else if (current_room == 1) {
             new Player(&room, {120, -60 });
@@ -42,7 +46,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }
@@ -74,7 +78,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 3);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }
@@ -114,7 +118,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 4);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }
@@ -145,7 +149,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 5);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }
@@ -173,7 +177,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 6);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }
@@ -207,7 +211,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 7);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
                     if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                     if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
                 }

@@ -2,11 +2,14 @@
 
 #include "Room.hpp"
 #include "Vec2.hpp"
+#include "Block.hpp"
 #include "Bullet.hpp"
 
-class BulletShooter : public Object {
+class BulletShooter : public Block {
 public:
-    int timer = 0;
-    BulletShooter(Room* room, const Vec2<double>& pos);
+    BulletShooter(Room* room, const Vec2<double>& pos, int rotate);
     void step() override;
+private:
+    int timer = 0;
+    int bullet_rotate = 0;
 };

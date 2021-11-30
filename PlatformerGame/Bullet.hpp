@@ -6,6 +6,8 @@
 
 class Bullet : public Object {
 public:
-    Bullet(Room* room, const Vec2<double>& pos);
+    Bullet(Room* room, const Vec2<double>& pos, int rotate);
     void step() override;
+private:
+    int bullet_rotate;
 };

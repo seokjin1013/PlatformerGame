@@ -7,6 +7,6 @@ Key::Key(Room* room, const Vec2<double>& pos) : Object(room, pos) {
 void Key::step() {
     if (check_box_collision<Player>(Vec2<double>{0, 0})) {
         room->key_flag = 1;
-        this->~Key();
+        delete this;
     }
 }

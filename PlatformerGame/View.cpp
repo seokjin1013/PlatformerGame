@@ -49,8 +49,23 @@ void View::draw_sprite(int* board, const Vec2<int>& size, const SpriteInfo& spri
         for (int j = 0; j < sprite.size.x; ++j) {
             int sprite_alpha_index = utility::get_index(sprite.size, sprite_info.image_index, i, j);
             if (sprite.alpha[sprite_alpha_index] > 0) {
-                double y = nearest.y - sprite.center.y + i;
-                double x = nearest.x - sprite.center.x + (sprite_info.image_scale.x == -1 ? sprite.size.x - j - 1 : j);
+                double y, x;
+                if (sprite_info.image_angle == 0) {
+                    y = nearest.y - sprite.center.y + (sprite_info.image_flip_y ? sprite.size.y - i - 1 : i);
+                    x = nearest.x - sprite.center.x + (sprite_info.image_flip_x ? sprite.size.x - j - 1 : j);
+                }
+                else if (sprite_info.image_angle == 1) {
+                    y = nearest.y - sprite.center.x + (sprite_info.image_flip_x ? sprite.size.x - j - 1 : j);
+                    x = nearest.x + sprite.center.y - (sprite_info.image_flip_y ? sprite.size.y - i - 1 : i) - (sprite.center.y % 2 == 0);
+                }
+                else if (sprite_info.image_angle == 2) {
+                    y = nearest.y + sprite.center.y - (sprite_info.image_flip_y ? sprite.size.y - i - 1 : i) - (sprite.center.y % 2 == 0);
+                    x = nearest.x + sprite.center.x - (sprite_info.image_flip_x ? sprite.size.x - j - 1 : j) - (sprite.center.x % 2 == 0);
+                }
+                else if (sprite_info.image_angle == 3) {
+                    y = nearest.y + sprite.center.x - (sprite_info.image_flip_x ? sprite.size.x - j - 1 : j) - (sprite.center.x % 2 == 0);
+                    x = nearest.x - sprite.center.y + (sprite_info.image_flip_y ? sprite.size.y - i - 1 : i);
+                }
                 int cell_y = static_cast<int>(y);
                 int cell_x_left = static_cast<int>(x * 2);
                 int cell_x_right = static_cast<int>(x * 2 + 1);

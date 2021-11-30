@@ -15,7 +15,9 @@ enum class SpriteIndex { player, player_jump, block, bullet_shooter, bullet, bat
 struct SpriteInfo {
     SpriteIndex sprite_index = SpriteIndex::none;
     int image_index = 0;
-    Vec2<double> image_scale = {1, 1};
+    bool image_flip_x = false;
+    bool image_flip_y = false;
+    int image_angle = 0;
 };
 
 class SpriteArchive final {

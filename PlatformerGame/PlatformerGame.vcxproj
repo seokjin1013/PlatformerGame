@@ -22,10 +22,7 @@
     <Image Include="Battery0.bmp" />
     <Image Include="Block0.bmp" />
     <Image Include="Bullet0.bmp" />
-    <Image Include="BulletShooter_down.bmp" />
-    <Image Include="BulletShooter_left.bmp" />
-    <Image Include="BulletShooter_right.bmp" />
-    <Image Include="BulletShooter_up.bmp" />
+    <Image Include="BulletShooter0.bmp" />
     <Image Include="Button0.bmp" />
     <Image Include="Goal0.bmp" />
     <Image Include="Key0.bmp" />

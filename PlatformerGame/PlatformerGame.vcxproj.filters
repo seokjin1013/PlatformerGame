@@ -24,18 +24,6 @@
     <Image Include="Bullet0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="BulletShooter_down.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="BulletShooter_left.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="BulletShooter_right.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="BulletShooter_up.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="Button0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
@@ -67,6 +55,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Title0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="BulletShooter0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

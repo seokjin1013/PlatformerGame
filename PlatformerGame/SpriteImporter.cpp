@@ -34,7 +34,7 @@ bool SpriteImporter::read_bmp24(string_view file_path) {
         return false;
     }
 
-    int padding = 3 - (w + 3) % 4;
+    int padding = w % 4;
     if (size == 0) size = (w * 3 + padding) * h;
 
     char* image = (char*)malloc(size);

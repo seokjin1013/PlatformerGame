@@ -6,5 +6,5 @@ Battery::Battery(Room* room, const Vec2<double>& pos) : Object(room, pos) {
 
 void Battery::step() {
     if (check_box_collision<Player>(Vec2<double>{0, 0}))
-        this->~Battery();
+        delete this;
 }

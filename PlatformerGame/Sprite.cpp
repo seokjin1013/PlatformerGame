@@ -46,7 +46,7 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(BulletShooter_right.bmp)");
+        importer.read_bmp24(R"(BulletShooter0.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::bullet_shooter].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::bullet_shooter].alpha, spr, sizeof(int) * w * h * n);

@@ -6,7 +6,7 @@
 
 class Laser : public Object {
 public:
-    Laser(Room* room, const Vec2<double>& pos, int rotate);
+    Laser(const Vec2<double>& pos, int rotate);
     void step() override;
 private:
     int laser_rotate;

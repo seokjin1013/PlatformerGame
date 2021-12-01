@@ -6,7 +6,7 @@
 
 class MovableBlock : public Block {
 public:
-    MovableBlock(Room* room, const Vec2<double>& pos);
+    MovableBlock(const Vec2<double>& pos);
     void step() override;
 
 private:

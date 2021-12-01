@@ -6,6 +6,6 @@
 
 class Key : public Object {
 public:
-    Key(Room* room, const Vec2<double>& pos);
+    Key(const Vec2<double>& pos);
     void step() override;
 };

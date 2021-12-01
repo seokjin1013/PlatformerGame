@@ -7,21 +7,37 @@ Room::Room(const Vec2<double>& size) {
 }
 
 Room::~Room() {
+    Object* e = nullptr;
     while (!pool.empty()) {
-        Object* e = pool.front();
+        e = pool.front();
+        pool.erase(begin(pool));
         delete e;
     }
 }
 
-void Room::add_instance(Object& obj) {
-    pool.emplace_back(&obj);
+void Room::add_instance(Object* obj) {
+    add_register.emplace_back(obj);
+    obj->set_room(this);
 }
 
-void Room::del_instance(Object& obj) {
-    pool.erase(std::remove(std::begin(pool), std::end(pool), &obj));
+void Room::del_instance(Object* obj) {
+    del_register.emplace_back(obj);
 }
 
 void Room::step() {
+    if (!empty(del_register)) {
+        for (Object* e : del_register) {
+            if (auto iter = remove(begin(pool), end(pool), e); iter != end(pool)) {
+                pool.erase(iter);
+                delete e;
+            }
+        }
+        del_register.clear();
+    }
+    if (!empty(add_register)) {
+        pool.insert(end(pool), begin(add_register), end(add_register));
+        add_register.clear();
+    }
     for (Object* e : pool) {
         e->step();
     }
@@ -31,16 +47,8 @@ const std::deque<Object*>& Room::get_pool() const {
     return pool;
 }
 
-Object::Object(Room* room) : room(room) {
-    room->add_instance(*this);
-}
-
-Object::Object(Room* room, const Vec2<double>& pos) : Object(room) {
+Object::Object(const Vec2<double>& pos) {
     this->pos = pos;
-}
-
-Object::~Object() {
-    room->del_instance(*this);
 }
 
 const Vec2<double>& Object::get_pos() const {
@@ -49,6 +57,10 @@ const Vec2<double>& Object::get_pos() const {
 
 const SpriteInfo& Object::get_sprite_info() const {
     return sprite_info;
+}
+
+void Object::set_room(Room* room) {
+    this->room = room;
 }
 
 bool Object::is_box_collide(const Vec2<double>& velocity, const Object* const other) {

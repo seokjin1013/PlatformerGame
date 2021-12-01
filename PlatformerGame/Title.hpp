@@ -5,6 +5,6 @@
 
 class Title : public Object {
 public:
-    Title(Room* room, const Vec2<double>& pos);
+    Title(const Vec2<double>& pos);
     void step() override;
 };

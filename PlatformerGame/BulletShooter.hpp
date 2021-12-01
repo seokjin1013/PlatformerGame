@@ -7,7 +7,7 @@
 
 class BulletShooter : public Block {
 public:
-    BulletShooter(Room* room, const Vec2<double>& pos, int rotate);
+    BulletShooter(const Vec2<double>& pos, int rotate);
     void step() override;
 private:
     int timer = 0;

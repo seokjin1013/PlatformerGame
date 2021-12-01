@@ -1,17 +1,17 @@
 #include "BreakableBlock.hpp"
 
-BreakableBlock::BreakableBlock(Room* room, const Vec2<double>& pos) : Block(room, pos) {
+BreakableBlock::BreakableBlock(const Vec2<double>& pos) : Block(pos) {
     this->sprite_info.sprite_index = SpriteIndex::breakable_block;
 }
 
 void BreakableBlock::step() {
     if (breaking) {
         if (life == 0) {
-            delete this;
+            room->del_instance(this);
         }
         else {
             sprite_info.image_index = utility::lerp(0, SpriteArchive::instance().get_sprite(sprite_info.sprite_index).number,
-                1.0 * (life_max - life) / life_max);
+                (1.0 * life_max - life) / life_max);
             --life;
         }
     }

@@ -6,6 +6,6 @@
 
 class Battery : public Object {
 public:
-    Battery(Room* room, const Vec2<double>& pos);
+    Battery(const Vec2<double>& pos);
     void step() override;
 };

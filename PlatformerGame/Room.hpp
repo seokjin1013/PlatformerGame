@@ -24,8 +24,8 @@ class Room {
 public:
     Room(const Vec2<double>& size);
     virtual ~Room();
-    void add_instance(Object& object);
-    void del_instance(Object& object);
+    void add_instance(Object* object);
+    void del_instance(Object* object);
     void step();
     const std::deque<Object*>& get_pool() const;
     int key_flag = 0;
@@ -33,16 +33,17 @@ public:
 
 private:
     std::deque<Object*> pool;
+    std::deque<Object*> add_register, del_register;
 };
 
 class Object {
 public:
-    Object(Room* room);
-    Object(Room* room, const Vec2<double>& pos);
-    virtual ~Object();
+    Object(const Vec2<double>& pos);
+    virtual ~Object() = default;
     virtual void step() = 0;
     const Vec2<double>& get_pos() const;
     const SpriteInfo& get_sprite_info() const;
+    void set_room(Room* room);
     template <typename T>
     void move_box_collision(Vec2<double>& velocity);
     template <typename T>
@@ -53,7 +54,7 @@ protected:
     int get_box_collision_direction(const Vec2<double>& velocity, const Object* const other);
     double get_box_collision_velocity_multiplier(const Vec2<double>& velocity, const Object* const other, int dir);
     Vec2<double> pos = { 0, 0 };
-    Room* const room;
+    Room* room = nullptr;
     SpriteInfo sprite_info;
 };
 

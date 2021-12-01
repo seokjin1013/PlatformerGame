@@ -13,33 +13,33 @@ void PlayManager::play() {
     Console console;
     console.hide_cursor();
     console.set_font_size(8);
-    console.set_screen_size(Vec2<int>{16, 9} *12);
+    console.set_screen_size(Vec2<int>{ 16, 9 } * 12);
     console.fix_screen_size();
     View view;
 
     while (true) {
-        Room room(Vec2<int>{16, 9} *12);
+        Room room(Vec2<int>{ 16, 9 } * 12);
         if (current_room == 0) {
-            new Player(&room, { 0, 0 });
+            room.add_instance(new Player({ 0, 0 }));
             for (int i = -30; i <= 3; ++i)
-                new Block(&room, Vec2<double>{i * 10.0, 30});
-            new BreakableBlock(&room, Vec2<double>{-10, 20});
-            new BreakableBlock(&room, Vec2<double>{-30, 20});
-            new BreakableBlock(&room, Vec2<double>{-50, 10});
-            new BreakableBlock(&room, Vec2<double>{-70, 0});
-            new Key(&room, Vec2<double>{20, 20});
-            new Goal(&room, Vec2<double>{20, 20}, 1);
-            new Block(&room, Vec2<double> {10, 0});
-            new Block(&room, Vec2<double> {70, 0});
-            //new Block(&room, Vec2<double> {40, 25});
-            //new Block(&room, Vec2<double> {40, -25});
-            new BulletShooter(&room, Vec2<double> {30, 0}, 2);
-            new BulletShooter(&room, Vec2<double> {40, 5}, 1);
-            new BulletShooter(&room, Vec2<double> {50, 0}, 0);
-            new BulletShooter(&room, Vec2<double> {40, -5}, 3);
+                room.add_instance(new Block({ i * 10.0, 30 }));
+            room.add_instance(new BreakableBlock({ -10, 20 }));
+            room.add_instance(new BreakableBlock({ -30, 20 }));
+            room.add_instance(new BreakableBlock({ -50, 10 }));
+            room.add_instance(new BreakableBlock({ -70, 0 }));
+            room.add_instance(new Key({ 20, 20 }));
+            room.add_instance(new Goal({ 20, 20 }, 1));
+            room.add_instance(new Block({ 10, 0 }));
+            room.add_instance(new Block({ 70, 0 }));
+            room.add_instance(new Block({ 40, 25 }));
+            room.add_instance(new Block({ 40, -25 }));
+            room.add_instance(new BulletShooter({ 30, 0 }, 2));
+            room.add_instance(new BulletShooter({ 40, 5 }, 1));
+            room.add_instance(new BulletShooter({ 50, 0 }, 0));
+            room.add_instance(new BulletShooter({ 40, -5 }, 3));
         }
         else if (current_room == 1) {
-            new Player(&room, {120, -60 });
+            room.add_instance(new Player({120, -60 }));
             int arr[40][40] = {
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                 {1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -51,17 +51,17 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 0);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 2)
         {
-            new Player(&room, { 100, 20 });
+            room.add_instance(new Player({ 100, 20 }));
             int arr[40][40] = {
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1},
@@ -83,18 +83,18 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 3);
-                    if (arr[i][j] == 6) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 0);
-                    if (arr[i][j] == 7) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 3));
+                    if (arr[i][j] == 6) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                    if (arr[i][j] == 7) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 2)
         {
-            new Player(&room, { 100, 20 });
+            room.add_instance(new Player({ 100, 20 }));
             int arr[40][40] = {
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1},
@@ -116,17 +116,17 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 3);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 3));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 3)
         {
-            new Player(&room, { 60, 10 });
+            room.add_instance(new Player({ 60, 10 }));
             int arr[35][35] = {
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, // 35
                 {1,3,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0,0,1},
@@ -156,17 +156,17 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 4);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 4));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 4)
         {
-            new Player(&room, { 120, 10 });
+            room.add_instance(new Player({ 120, 10 }));
             int arr[40][40] = {
                 {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
                 {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1},
@@ -187,18 +187,18 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 5);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 5));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 5)
         {
 
-            new Player(&room, { 0, -50 });
+            room.add_instance(new Player({ 0, -50 }));
             int arr[20][60] = {
                 {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0}, // 35
                 {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
@@ -215,17 +215,17 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 6);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 6));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }
         else if (current_room == 6)
         {
-            new Player(&room, { 0, 70 });
+            room.add_instance(new Player({ 0, 70 }));
             int arr[30][60] = {
                 {0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0},
@@ -249,11 +249,11 @@ void PlayManager::play() {
             };
             for (int i = 0; i < ssize(arr); i++) {
                 for (int j = 0; j < ssize(arr[0]); j++) {
-                    if (arr[i][j] == 1) new Block(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 2) new Goal(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 7);
-                    if (arr[i][j] == 3) new BulletShooter(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0}, 2);
-                    if (arr[i][j] == 4) new Battery(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
-                    if (arr[i][j] == 5) new Key(&room, Vec2<double>{-100.0 + j * 10.0, -100 + i * 10.0});
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 7));
+                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
             }
         }

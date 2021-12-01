@@ -15,7 +15,7 @@ class BulletShooter;
 
 class Player : public Object {
 public:
-    Player(Room* room, const Vec2<double>& pos);
+    Player(const Vec2<double>& pos);
     virtual ~Player();
     void step() override;
 
@@ -33,6 +33,4 @@ private:
 
     int image_delay = 10;
     int image_remaining_delay = 0;
-    Vec2<double> view_pos_target;
-    Vec2<int> view_size_target;
 };

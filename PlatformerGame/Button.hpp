@@ -5,6 +5,6 @@
 
 class Button : public Object {
 public:
-    Button(Room* room, const Vec2<double>& pos);
+    Button(const Vec2<double>& pos);
     void step() override;
 };

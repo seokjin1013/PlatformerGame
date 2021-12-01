@@ -8,7 +8,7 @@
 
 class LaserBlock : public Block {
 public:
-    LaserBlock(Room* room, const Vec2<double>& pos, int rotate);
+    LaserBlock(const Vec2<double>& pos, int rotate);
     void step() override;
 private:
     double timer = 0;

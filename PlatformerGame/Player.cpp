@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Player::Player(Room* room, const Vec2<double>& pos) : Object(room, pos) {
+Player::Player(const Vec2<double>& pos) : Object(pos) {
     this->sprite_info.sprite_index = SpriteIndex::player;
     horizontal_move.negative_vk = VK_LEFT;
     horizontal_move.positive_vk = VK_RIGHT;
@@ -11,8 +11,6 @@ Player::Player(Room* room, const Vec2<double>& pos) : Object(room, pos) {
     horizontal_move.negative_max = -speed;
     horizontal_move.positive_max = speed;
     Controller::instance().add_control_axis(horizontal_move);
-    view_pos_target = pos;
-    view_size_target = room->view_info.size;
 }
 
 Player::~Player() {
@@ -89,9 +87,7 @@ void Player::step() {
 
     //view
     ViewInfo& view = room->view_info;
-    view_pos_target = pos;
-    view.pos = utility::lerp<Vec2<double>>(view.pos, view_pos_target, 0.02);
-    view.size = utility::lerp<Vec2<double>>(view.size, view_size_target, 0.02);
+    view.pos = utility::lerp<Vec2<double>>(view.pos, pos, 0.02);
     if (Controller::instance().key_down(VK_SPACE)) {
         view.time_recall_gauge_show = 2;
         view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 1, 0.05);

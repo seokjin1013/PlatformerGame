@@ -1,6 +1,6 @@
 #include "Title.hpp"
 
-Title::Title(Room* room, const Vec2<double>& pos) : Object(room, pos) {
+Title::Title(const Vec2<double>& pos) : Object(pos) {
     this->sprite_info.sprite_index = SpriteIndex::title;
 }
 

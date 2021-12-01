@@ -8,7 +8,7 @@
 
 class BreakableBlock : public Block {
 public:
-    BreakableBlock(Room* room, const Vec2<double>& pos);
+    BreakableBlock(const Vec2<double>& pos);
     void step() override;
 
 private:

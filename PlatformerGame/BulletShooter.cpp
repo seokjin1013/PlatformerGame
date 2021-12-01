@@ -1,6 +1,6 @@
 #include "BulletShooter.hpp"
 
-BulletShooter::BulletShooter(Room* room, const Vec2<double>& pos, int rotate) : Block(room, pos) {
+BulletShooter::BulletShooter(const Vec2<double>& pos, int rotate) : Block(pos) {
     bullet_rotate = rotate;
     this->sprite_info.sprite_index = SpriteIndex::bullet_shooter;
     sprite_info.image_angle = rotate;
@@ -12,7 +12,7 @@ BulletShooter::BulletShooter(Room* room, const Vec2<double>& pos, int rotate) : 
 
 void BulletShooter::step() {
     if (timer++ >= 120) {
-        new Bullet(room, pos + dpos, bullet_rotate);
+        room->add_instance(new Bullet(pos + dpos, bullet_rotate));
         timer = 0;
     }
 }

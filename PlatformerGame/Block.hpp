@@ -5,6 +5,6 @@
 
 class Block : public Object {
 public:
-    Block(Room* room, const Vec2<double>& pos);
+    Block(const Vec2<double>& pos);
     void step() override;
 };

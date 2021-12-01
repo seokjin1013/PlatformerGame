@@ -135,6 +135,40 @@ SpriteArchive::SpriteArchive() {
         sprite[(int)SpriteIndex::movable_block].number = n;
     }
     {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(BreakableBlock0.bmp)");
+        importer.read_bmp24(R"(BreakableBlock1.bmp)");
+        importer.read_bmp24(R"(BreakableBlock2.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::breakable_block].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::breakable_block].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::breakable_block].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::breakable_block].size = { w, h };
+        sprite[(int)SpriteIndex::breakable_block].number = n;
+    }
+    //{
+    //    SpriteImporter importer;
+    //    importer.read_bmp24(R"(Button0.bmp)");
+    //    importer.read_bmp24(R"(Button1.bmp)");
+    //    auto [spr, w, h, n] = importer.get();
+    //    sprite[(int)SpriteIndex::button].alpha = new int[w * h * n];
+    //    memcpy(sprite[(int)SpriteIndex::button].alpha, spr, sizeof(int) * w * h * n);
+    //    sprite[(int)SpriteIndex::button].center = { w / 2, h / 2 };
+    //    sprite[(int)SpriteIndex::button].size = { w, h };
+    //    sprite[(int)SpriteIndex::button].number = n;
+    //}
+    //{
+    //    SpriteImporter importer;
+    //    importer.read_bmp24(R"(ButtonBlock0.bmp)");
+    //    importer.read_bmp24(R"(ButtonBlock1.bmp)");
+    //    auto [spr, w, h, n] = importer.get();
+    //    sprite[(int)SpriteIndex::button_block].alpha = new int[w * h * n];
+    //    memcpy(sprite[(int)SpriteIndex::button_block].alpha, spr, sizeof(int) * w * h * n);
+    //    sprite[(int)SpriteIndex::button_block].center = { w / 2, h / 2 };
+    //    sprite[(int)SpriteIndex::button_block].size = { w, h };
+    //    sprite[(int)SpriteIndex::button_block].number = n;
+    //}
+    {
         int w = 0, h = 0, n = 0;
         sprite[(int)SpriteIndex::none].alpha = nullptr;
         sprite[(int)SpriteIndex::none].center = {0, 0};

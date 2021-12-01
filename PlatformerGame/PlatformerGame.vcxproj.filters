@@ -66,6 +66,24 @@
     <Image Include="LaserBlock0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="BreakableBlock0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="BreakableBlock1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="BreakableBlock2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Button1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="ButtonBlock0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="ButtonBlock1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Battery.cpp">
@@ -123,6 +141,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="LaserBlock.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BreakableBlock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -199,6 +220,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="LaserBlock.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BreakableBlock.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

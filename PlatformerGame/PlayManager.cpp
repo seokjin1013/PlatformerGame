@@ -23,19 +23,20 @@ void PlayManager::play() {
             new Player(&room, { 0, 0 });
             for (int i = -30; i <= 3; ++i)
                 new Block(&room, Vec2<double>{i * 10.0, 30});
-            new MovableBlock(&room, Vec2<double>{-10, 0});
-            new MovableBlock(&room, Vec2<double>{-30, 0});
-            new MovableBlock(&room, Vec2<double>{-30, 0});
-            new MovableBlock(&room, Vec2<double>{-30, 0});
+            new BreakableBlock(&room, Vec2<double>{-10, 20});
+            new BreakableBlock(&room, Vec2<double>{-30, 20});
+            new BreakableBlock(&room, Vec2<double>{-50, 10});
+            new BreakableBlock(&room, Vec2<double>{-70, 0});
             new Key(&room, Vec2<double>{20, 20});
             new Goal(&room, Vec2<double>{20, 20}, 1);
             new Block(&room, Vec2<double> {10, 0});
             new Block(&room, Vec2<double> {70, 0});
+            //new Block(&room, Vec2<double> {40, 25});
+            //new Block(&room, Vec2<double> {40, -25});
             new BulletShooter(&room, Vec2<double> {30, 0}, 2);
             new BulletShooter(&room, Vec2<double> {40, 5}, 1);
             new BulletShooter(&room, Vec2<double> {50, 0}, 0);
             new BulletShooter(&room, Vec2<double> {40, -5}, 3);
-            new LaserBlock(&room, Vec2<double> {-50, -10}, 1);
         }
         else if (current_room == 1) {
             new Player(&room, {120, -60 });

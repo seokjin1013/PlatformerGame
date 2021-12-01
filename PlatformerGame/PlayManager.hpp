@@ -10,6 +10,8 @@
 #include "Bullet.hpp"
 #include "LaserBlock.hpp"
 #include "Laser.hpp"
+#include "MovableBlock.hpp"
+#include "BreakableBlock.hpp"
 #include "Battery.hpp"
 #include "Key.hpp"
 #include "Console.hpp"
@@ -18,7 +20,6 @@
 #include "Player.hpp"
 #include "View.hpp"
 #include "Title.hpp"
-#include "MovableBlock.hpp"
 #include "Room.hpp"
 
 class PlayManager final {

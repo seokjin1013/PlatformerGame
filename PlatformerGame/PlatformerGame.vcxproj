@@ -21,9 +21,15 @@
   <ItemGroup>
     <Image Include="Battery0.bmp" />
     <Image Include="Block0.bmp" />
+    <Image Include="BreakableBlock0.bmp" />
+    <Image Include="BreakableBlock1.bmp" />
+    <Image Include="BreakableBlock2.bmp" />
     <Image Include="Bullet0.bmp" />
     <Image Include="BulletShooter0.bmp" />
     <Image Include="Button0.bmp" />
+    <Image Include="Button1.bmp" />
+    <Image Include="ButtonBlock0.bmp" />
+    <Image Include="ButtonBlock1.bmp" />
     <Image Include="Goal0.bmp" />
     <Image Include="Key0.bmp" />
     <Image Include="Laser0.bmp" />
@@ -40,6 +46,7 @@
   <ItemGroup>
     <ClCompile Include="Battery.cpp" />
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="BreakableBlock.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletShooter.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -66,8 +73,10 @@
   <ItemGroup>
     <ClInclude Include="Battery.hpp" />
     <ClInclude Include="Block.hpp" />
+    <ClInclude Include="BreakableBlock.hpp" />
     <ClInclude Include="Bullet.hpp" />
     <ClInclude Include="BulletShooter.hpp" />
+    <ClInclude Include="Button.hpp" />
     <ClInclude Include="Console.hpp" />
     <ClInclude Include="Constant.hpp" />
     <ClInclude Include="Controller.hpp" />

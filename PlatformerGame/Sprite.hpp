@@ -10,7 +10,16 @@ struct Sprite {
     int number;
 };
 
-enum class SpriteIndex { player, player_jump, block, bullet_shooter, bullet, laser_block, laser, battery, key, goal, title, movable_block, none, };
+enum class SpriteIndex { 
+    key, goal, title, battery,
+    player, player_jump,
+    block, movable_block, breakable_block, 
+    bullet_shooter, bullet, 
+    laser_block, laser,
+    button_block, button,
+    flicking_block,
+    none
+};
 
 struct SpriteInfo {
     SpriteIndex sprite_index = SpriteIndex::none;

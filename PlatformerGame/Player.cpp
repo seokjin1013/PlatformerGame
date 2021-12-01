@@ -20,7 +20,7 @@ Player::~Player() {
 }
 
 void Player::step() {
-    bool step_on = check_box_collision<Block>(Vec2<double>::DOWN() * 0.001);
+    bool step_on = check_box_collision<Block>(Vec2<double>::DOWN() * epsilon);
 
     //time recall
     if (Controller::instance().key_down(VK_SPACE)) {
@@ -70,7 +70,8 @@ void Player::step() {
         if (horizontal_move.direction != 0) {
             if (image_remaining_delay-- == 0) {
                 image_remaining_delay = image_delay;
-                sprite_info.image_index = (sprite_info.image_index + 1) % SpriteArchive::instance().get_sprite(sprite_info.sprite_index).number;
+                sprite_info.image_index = (sprite_info.image_index + 1)
+                    % SpriteArchive::instance().get_sprite(sprite_info.sprite_index).number;
             }
         }
         else {

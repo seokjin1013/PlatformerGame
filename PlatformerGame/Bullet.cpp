@@ -13,8 +13,12 @@ Bullet::Bullet(Room* room, const Vec2<double>& pos, int rotate) : Object(room, p
 void Bullet::step() {
     if (!check_box_collision<Block>(Vec2<double>{0, 0}) && !check_box_collision<Laser>(Vec2<double>{0, 0}))
         pos += velocity;
-    else
+    else {
         delete this;
-    if (life-- == 0)
+        return;
+    }
+    if (life-- == 0) {
         delete this;
+        return;
+    }
 }

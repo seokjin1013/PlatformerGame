@@ -57,7 +57,7 @@
     <Image Include="Title0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="BulletShooter0.bmp">
+    <Image Include="BulletBlock0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Laser0.bmp">
@@ -95,7 +95,7 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BulletShooter.cpp">
+    <ClCompile Include="BulletBlock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Console.cpp">
@@ -146,6 +146,12 @@
     <ClCompile Include="BreakableBlock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonBlock.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Utility.inl">
@@ -168,7 +174,7 @@
     <ClInclude Include="Bullet.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BulletShooter.hpp">
+    <ClInclude Include="BulletBlock.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Console.hpp">
@@ -226,6 +232,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Button.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonBlock.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

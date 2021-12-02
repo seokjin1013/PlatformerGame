@@ -1,7 +1,7 @@
 #include "Key.hpp"
 
 Key::Key(const Vec2<double>& pos) : Object(pos) {
-    this->sprite_info.sprite_index = SpriteIndex::key;
+    sprite_info.sprite_index = SpriteIndex::key;
 }
 
 void Key::step() {

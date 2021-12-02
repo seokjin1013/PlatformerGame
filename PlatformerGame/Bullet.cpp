@@ -2,7 +2,7 @@
 
 Bullet::Bullet(const Vec2<double>& pos, int rotate) : Object(pos) {
     bullet_rotate = rotate;
-    this->sprite_info.sprite_index = SpriteIndex::bullet;
+    sprite_info.sprite_index = SpriteIndex::bullet;
     sprite_info.image_angle = rotate;
     if (bullet_rotate == 0) velocity = { 1.0, 0.0 };
     else if (bullet_rotate == 1) velocity = { 0.0, 1.0 };

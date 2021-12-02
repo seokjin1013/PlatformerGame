@@ -1,7 +1,7 @@
 #include "Battery.hpp"
 
 Battery::Battery(const Vec2<double>& pos) : Object(pos) {
-    this->sprite_info.sprite_index = SpriteIndex::battery;
+    sprite_info.sprite_index = SpriteIndex::battery;
 }
 
 void Battery::step() {

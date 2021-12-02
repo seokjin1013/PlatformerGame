@@ -11,7 +11,7 @@
 #include "Vec2.hpp"
 
 class Block;
-class BulletShooter;
+class BulletBlock;
 
 class Player : public Object {
 public:

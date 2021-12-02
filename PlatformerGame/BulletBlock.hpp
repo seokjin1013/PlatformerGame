@@ -5,9 +5,9 @@
 #include "Block.hpp"
 #include "Bullet.hpp"
 
-class BulletShooter : public Block {
+class BulletBlock : public Block {
 public:
-    BulletShooter(const Vec2<double>& pos, int rotate);
+    BulletBlock(const Vec2<double>& pos, int rotate);
     void step() override;
 private:
     int timer = 0;

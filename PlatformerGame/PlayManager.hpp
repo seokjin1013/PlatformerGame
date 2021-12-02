@@ -6,12 +6,14 @@
 #include <thread>
 #include <vector>
 #include "Block.hpp"
-#include "BulletShooter.hpp"
+#include "BulletBlock.hpp"
 #include "Bullet.hpp"
 #include "LaserBlock.hpp"
 #include "Laser.hpp"
 #include "MovableBlock.hpp"
 #include "BreakableBlock.hpp"
+#include "Button.hpp"
+#include "ButtonBlock.hpp"
 #include "Battery.hpp"
 #include "Key.hpp"
 #include "Console.hpp"

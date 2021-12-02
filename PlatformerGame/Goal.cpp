@@ -1,7 +1,7 @@
 #include "Goal.hpp"
 
 Goal::Goal(const Vec2<double>& pos, int next_room) : Object(pos) {
-    this->sprite_info.sprite_index = SpriteIndex::goal;
+    sprite_info.sprite_index = SpriteIndex::goal;
     this->next_room = next_room;
 }
 

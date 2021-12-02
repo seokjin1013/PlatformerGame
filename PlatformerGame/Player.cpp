@@ -3,7 +3,7 @@
 using namespace std;
 
 Player::Player(const Vec2<double>& pos) : Object(pos) {
-    this->sprite_info.sprite_index = SpriteIndex::player;
+    sprite_info.sprite_index = SpriteIndex::player;
     horizontal_move.negative_vk = VK_LEFT;
     horizontal_move.positive_vk = VK_RIGHT;
     horizontal_move.negative_force = -force;
@@ -15,6 +15,7 @@ Player::Player(const Vec2<double>& pos) : Object(pos) {
 
 Player::~Player() {
     Controller::instance().del_control_axis(horizontal_move);
+    PlayManager::instance().set_room(PlayManager::instance().get_room());
 }
 
 void Player::step() {
@@ -31,7 +32,7 @@ void Player::step() {
             player_velocity_list.pop_front();
         }
         else {
-            PlayManager::instance().set_room(PlayManager::instance().get_room());
+            room->del_instance(this);
         }
     }
     else {
@@ -55,8 +56,8 @@ void Player::step() {
         move_box_collision<Block>(velocity);
 
         //collide check
-        if (check_box_collision<Bullet>(Vec2<double>{0, 0})) PlayManager::instance().set_room(PlayManager::instance().get_room());
-        if (check_box_collision<Laser>(Vec2<double>{0, 0})) PlayManager::instance().set_room(PlayManager::instance().get_room());
+        if (check_box_collision<Bullet>(Vec2<double>{0, 0})) room->del_instance(this);
+        if (check_box_collision<Laser>(Vec2<double>{0, 0})) room->del_instance(this);
         // if(check_box_collision<Battery>(Vec2<double>{0, 0})) score+=1;
     }
 
@@ -111,6 +112,6 @@ void Player::step() {
 
     //room reset
     if (Controller::instance().key_pressed('R')) {
-        PlayManager::instance().set_room(PlayManager::instance().get_room());
+        room->del_instance(this);
     }
 }

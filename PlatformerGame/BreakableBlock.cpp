@@ -1,7 +1,7 @@
 #include "BreakableBlock.hpp"
 
 BreakableBlock::BreakableBlock(const Vec2<double>& pos) : Block(pos) {
-    this->sprite_info.sprite_index = SpriteIndex::breakable_block;
+    sprite_info.sprite_index = SpriteIndex::breakable_block;
 }
 
 void BreakableBlock::step() {

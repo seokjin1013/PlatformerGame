@@ -25,7 +25,7 @@
     <Image Include="BreakableBlock1.bmp" />
     <Image Include="BreakableBlock2.bmp" />
     <Image Include="Bullet0.bmp" />
-    <Image Include="BulletShooter0.bmp" />
+    <Image Include="BulletBlock0.bmp" />
     <Image Include="Button0.bmp" />
     <Image Include="Button1.bmp" />
     <Image Include="ButtonBlock0.bmp" />
@@ -48,7 +48,9 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="BreakableBlock.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletShooter.cpp" />
+    <ClCompile Include="BulletBlock.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonBlock.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Goal.cpp" />
@@ -75,8 +77,9 @@
     <ClInclude Include="Block.hpp" />
     <ClInclude Include="BreakableBlock.hpp" />
     <ClInclude Include="Bullet.hpp" />
-    <ClInclude Include="BulletShooter.hpp" />
+    <ClInclude Include="BulletBlock.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="ButtonBlock.hpp" />
     <ClInclude Include="Console.hpp" />
     <ClInclude Include="Constant.hpp" />
     <ClInclude Include="Controller.hpp" />

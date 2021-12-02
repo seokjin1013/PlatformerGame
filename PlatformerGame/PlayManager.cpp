@@ -23,20 +23,24 @@ void PlayManager::play() {
             room.add_instance(new Player({ 0, 0 }));
             for (int i = -30; i <= 3; ++i)
                 room.add_instance(new Block({ i * 10.0, 30 }));
-            room.add_instance(new BreakableBlock({ -10, 20 }));
-            room.add_instance(new BreakableBlock({ -30, 20 }));
-            room.add_instance(new BreakableBlock({ -50, 10 }));
-            room.add_instance(new BreakableBlock({ -70, 0 }));
+            room.add_instance(new Button({ -10, 20 }, true));
+            room.add_instance(new Button({ -30, 20 }, false));
+            room.add_instance(new Button({ -50, 10 }, true));
+            room.add_instance(new Button({ -70, 0 }, false));
+            room.add_instance(new ButtonBlockOn({ -70, 20 }));
+            room.add_instance(new ButtonBlockOn({ -80, 20 }));
+            room.add_instance(new ButtonBlockOn({ -90, 20 }));
+            room.add_instance(new ButtonBlockOff({ -60, 20 }));
             room.add_instance(new Key({ 20, 20 }));
             room.add_instance(new Goal({ 20, 20 }, 1));
             room.add_instance(new Block({ 10, 0 }));
             room.add_instance(new Block({ 70, 0 }));
             room.add_instance(new Block({ 40, 25 }));
             room.add_instance(new Block({ 40, -25 }));
-            room.add_instance(new BulletShooter({ 30, 0 }, 2));
-            room.add_instance(new BulletShooter({ 40, 5 }, 1));
-            room.add_instance(new BulletShooter({ 50, 0 }, 0));
-            room.add_instance(new BulletShooter({ 40, -5 }, 3));
+            room.add_instance(new BulletBlock({ 30, 0 }, 2));
+            room.add_instance(new BulletBlock({ 40, 5 }, 1));
+            room.add_instance(new BulletBlock({ 50, 0 }, 0));
+            room.add_instance(new BulletBlock({ 40, -5 }, 3));
         }
         else if (current_room == 1) {
             room.add_instance(new Player({120, -60 }));
@@ -53,7 +57,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -85,8 +89,8 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 3));
-                    if (arr[i][j] == 6) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
-                    if (arr[i][j] == 7) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 6) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                    if (arr[i][j] == 7) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -118,7 +122,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 3));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -158,7 +162,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 4));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -189,7 +193,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 5));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -217,7 +221,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 6));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }
@@ -251,7 +255,7 @@ void PlayManager::play() {
                 for (int j = 0; j < ssize(arr[0]); j++) {
                     if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 7));
-                    if (arr[i][j] == 3) room.add_instance(new BulletShooter({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 2));
                     if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                     if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
                 }

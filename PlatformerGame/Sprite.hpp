@@ -14,7 +14,7 @@ enum class SpriteIndex {
     key, goal, title, battery,
     player, player_jump,
     block, movable_block, breakable_block, 
-    bullet_shooter, bullet, 
+    bullet_block, bullet, 
     laser_block, laser,
     button_block, button,
     flicking_block,

@@ -14,6 +14,7 @@
 #include "BreakableBlock.hpp"
 #include "Button.hpp"
 #include "ButtonBlock.hpp"
+#include "FlickingBlock.hpp"
 #include "Battery.hpp"
 #include "Key.hpp"
 #include "Console.hpp"

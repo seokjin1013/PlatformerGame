@@ -23,14 +23,10 @@ void PlayManager::play() {
             room.add_instance(new Player({ 0, 0 }));
             for (int i = -30; i <= 3; ++i)
                 room.add_instance(new Block({ i * 10.0, 30 }));
-            room.add_instance(new Button({ -10, 20 }, true));
-            room.add_instance(new Button({ -30, 20 }, false));
-            room.add_instance(new Button({ -50, 10 }, true));
-            room.add_instance(new Button({ -70, 0 }, false));
-            room.add_instance(new ButtonBlockOn({ -70, 20 }));
-            room.add_instance(new ButtonBlockOn({ -80, 20 }));
-            room.add_instance(new ButtonBlockOn({ -90, 20 }));
-            room.add_instance(new ButtonBlockOff({ -60, 20 }));
+            room.add_instance(new FlickingBlockOn({ -70, 20 }));
+            room.add_instance(new FlickingBlockOn({ -80, 20 }));
+            room.add_instance(new FlickingBlockOn({ -90, 20 }));
+            room.add_instance(new FlickingBlockOff({ -60, 20 }));
             room.add_instance(new Key({ 20, 20 }));
             room.add_instance(new Goal({ 20, 20 }, 1));
             room.add_instance(new Block({ 10, 0 }));

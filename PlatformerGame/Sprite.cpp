@@ -169,6 +169,17 @@ SpriteArchive::SpriteArchive() {
         sprite[(int)SpriteIndex::button_block].number = n;
     }
     {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(FlickingBlock0.bmp)");
+        importer.read_bmp24(R"(FlickingBlock1.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::flicking_block].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::flicking_block].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::flicking_block].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::flicking_block].size = { w, h };
+        sprite[(int)SpriteIndex::flicking_block].number = n;
+    }
+    {
         int w = 0, h = 0, n = 0;
         sprite[(int)SpriteIndex::none].alpha = nullptr;
         sprite[(int)SpriteIndex::none].center = {0, 0};

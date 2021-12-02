@@ -84,6 +84,12 @@
     <Image Include="ButtonBlock1.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="FlickingBlock1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="FlickingBlock0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Battery.cpp">
@@ -150,6 +156,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ButtonBlock.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FlickingBlock.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -235,6 +244,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="ButtonBlock.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FlickingBlock.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

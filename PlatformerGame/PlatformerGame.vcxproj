@@ -30,6 +30,8 @@
     <Image Include="Button1.bmp" />
     <Image Include="ButtonBlock0.bmp" />
     <Image Include="ButtonBlock1.bmp" />
+    <Image Include="FlickingBlock1.bmp" />
+    <Image Include="FlickingBlock0.bmp" />
     <Image Include="Goal0.bmp" />
     <Image Include="Key0.bmp" />
     <Image Include="Laser0.bmp" />
@@ -53,6 +55,7 @@
     <ClCompile Include="ButtonBlock.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="FlickingBlock.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="Laser.cpp" />
@@ -83,6 +86,7 @@
     <ClInclude Include="Console.hpp" />
     <ClInclude Include="Constant.hpp" />
     <ClInclude Include="Controller.hpp" />
+    <ClInclude Include="FlickingBlock.hpp" />
     <ClInclude Include="Goal.hpp" />
     <ClInclude Include="Key.hpp" />
     <ClInclude Include="Laser.hpp" />

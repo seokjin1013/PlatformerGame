@@ -39,8 +39,18 @@ void Player::step() {
         //velocity calculate
         velocity.x = horizontal_move.value;
         velocity.y += gravity;
-        if (Controller::instance().key_down(VK_UP) && step_on)
+        if (Controller::instance().key_down(VK_UP) && step_on) {
             velocity.y -= jump;
+            auto pool = room->get_pool();
+            for (auto& e : pool) {
+                if (FlickingBlockOn* p = dynamic_cast<FlickingBlockOn*>(e)) {
+                    p->toggle();
+                }
+                else if (FlickingBlockOff* p = dynamic_cast<FlickingBlockOff*>(e)) {
+                    p->toggle();
+                }
+            }
+        }
 
         //time recall info setting
         if (time_recall_sleep == 0)

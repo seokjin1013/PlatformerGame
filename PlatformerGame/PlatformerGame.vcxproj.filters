@@ -60,9 +60,6 @@
     <Image Include="BulletBlock0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Laser0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="LaserBlock0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
@@ -141,9 +138,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="View.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Laser.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="LaserBlock.cpp">
@@ -229,9 +223,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="View.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Laser.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="LaserBlock.hpp">

@@ -15,7 +15,7 @@ enum class SpriteIndex {
     player, player_jump,
     block, movable_block, breakable_block, 
     bullet_block, bullet, 
-    laser_block, laser,
+    laser_block,
     button_block, button,
     flicking_block,
     none
@@ -27,6 +27,9 @@ struct SpriteInfo {
     bool image_flip_x = false;
     bool image_flip_y = false;
     int image_angle = 0;
+
+    bool primary = false;
+    int x1, x2, y1, y2;
 };
 
 class SpriteArchive final {

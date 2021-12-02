@@ -23,20 +23,11 @@ void PlayManager::play() {
             room.add_instance(new Player({ 0, 0 }));
             for (int i = -30; i <= 3; ++i)
                 room.add_instance(new Block({ i * 10.0, 30 }));
-            room.add_instance(new FlickingBlockOn({ -70, 20 }));
-            room.add_instance(new FlickingBlockOn({ -80, 20 }));
-            room.add_instance(new FlickingBlockOn({ -90, 20 }));
-            room.add_instance(new FlickingBlockOff({ -60, 20 }));
-            room.add_instance(new Key({ 20, 20 }));
-            room.add_instance(new Goal({ 20, 20 }, 1));
-            room.add_instance(new Block({ 10, 0 }));
-            room.add_instance(new Block({ 70, 0 }));
-            room.add_instance(new Block({ 40, 25 }));
-            room.add_instance(new Block({ 40, -25 }));
-            room.add_instance(new BulletBlock({ 30, 0 }, 2));
-            room.add_instance(new BulletBlock({ 40, 5 }, 1));
-            room.add_instance(new BulletBlock({ 50, 0 }, 0));
-            room.add_instance(new BulletBlock({ 40, -5 }, 3));
+            room.add_instance(new LaserBlock({ -80, -10 }, 1));
+            room.add_instance(new BulletBlock({ -120, 10 }, 0));
+            room.add_instance(new LaserBlock({ -60, 0 }, 2));
+            room.add_instance(new LaserBlock({ -40, 10 }, 3));
+            room.add_instance(new LaserBlock({ 20, 20 }, 0));
         }
         else if (current_room == 1) {
             room.add_instance(new Player({120, -60 }));

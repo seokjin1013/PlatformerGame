@@ -82,6 +82,27 @@ void View::draw_sprite(int* board, const Vec2<int>& size, const SpriteInfo& spri
                 }
             }
         }
+    if (sprite_info.primary) {
+        Vec2<double> nearest = { round((pos.x - 0.5) * 2) / 2, round(pos.y - 0.5) };
+        for (int i = sprite_info.y1; i <= sprite_info.y2; ++i)
+            for (int j = sprite_info.x1; j <= sprite_info.x2; ++j) {
+                double y, x;
+                y = nearest.y + i;
+                x = nearest.x + j;
+                int cell_y = static_cast<int>(y);
+                int cell_x_left = static_cast<int>(x * 2);
+                int cell_x_right = static_cast<int>(x * 2 + 1);
+                if (!(cell_y >= 0 && cell_y < size.y)) continue;
+                if (cell_x_left >= 0 && cell_x_left < size.x) {
+                    int left_pixel_index = utility::get_index(size, cell_y, cell_x_left);
+                    board[left_pixel_index] = 255;
+                }
+                if (cell_x_right >= 0 && cell_x_right < size.x) {
+                    int right_pixel_index = utility::get_index(size, cell_y, cell_x_right);
+                    board[right_pixel_index] = 255;
+                }
+            }
+    }
 }
 
 void View::draw_set_filter(int* dst, int* src, const Vec2<int>& border, double* filter_board_x, double* filter_board_y) {

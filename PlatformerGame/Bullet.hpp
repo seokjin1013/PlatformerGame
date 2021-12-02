@@ -3,7 +3,6 @@
 #include "Room.hpp"
 #include "Vec2.hpp"
 #include "Block.hpp"
-#include "Laser.hpp"
 
 class Bullet : public Object {
 public:

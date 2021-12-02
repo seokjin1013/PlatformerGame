@@ -2,7 +2,6 @@
 
 #include "Room.hpp"
 #include "Vec2.hpp"
-#include "Laser.hpp"
 #include "Player.hpp"
 #include "Block.hpp"
 
@@ -11,7 +10,11 @@ public:
     LaserBlock(const Vec2<double>& pos, int rotate);
     void step() override;
 private:
+    bool create = false;
     double timer = 0;
-    int laser_rotate = 0;
+    int rotate = 0;
     Vec2<double> dpos;
+    int laser_thinness = 4;
+    double laser_range_max = 30;
+    double laser_range = laser_range_max;
 };

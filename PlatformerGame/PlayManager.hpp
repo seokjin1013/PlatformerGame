@@ -9,7 +9,6 @@
 #include "BulletBlock.hpp"
 #include "Bullet.hpp"
 #include "LaserBlock.hpp"
-#include "MovableBlock.hpp"
 #include "BreakableBlock.hpp"
 #include "Button.hpp"
 #include "ButtonBlock.hpp"

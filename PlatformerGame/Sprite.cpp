@@ -116,16 +116,6 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(MovableBlock0.bmp)");
-        auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::movable_block].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::movable_block].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::movable_block].center = { w / 2, h / 2 };
-        sprite[(int)SpriteIndex::movable_block].size = { w, h };
-        sprite[(int)SpriteIndex::movable_block].number = n;
-    }
-    {
-        SpriteImporter importer;
         importer.read_bmp24(R"(BreakableBlock0.bmp)");
         importer.read_bmp24(R"(BreakableBlock1.bmp)");
         importer.read_bmp24(R"(BreakableBlock2.bmp)");

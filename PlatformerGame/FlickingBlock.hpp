@@ -4,6 +4,7 @@
 #include "Vec2.hpp"
 #include "Block.hpp"
 #include "Controller.hpp"
+#include "Player.hpp"
 
 class FlickingBlockOn : public Block {
 public:

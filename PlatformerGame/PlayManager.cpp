@@ -20,14 +20,37 @@ void PlayManager::play() {
     while (true) {
         Room room(Vec2<int>{ 16, 9 } * 12);
         if (current_room == 0) {
-            room.add_instance(new Player({ 0, 0 }));
-            for (int i = -30; i <= 3; ++i)
-                room.add_instance(new Block({ i * 10.0, 30 }));
-            room.add_instance(new LaserBlock({ -80, -10 }, 1));
-            room.add_instance(new BulletBlock({ -120, 10 }, 0));
-            room.add_instance(new LaserBlock({ -60, 0 }, 2));
-            room.add_instance(new LaserBlock({ -40, 10 }, 3));
-            room.add_instance(new LaserBlock({ 20, 20 }, 0));
+            room.add_instance(new Player({ 30, 46 }));
+            int arr[30][60] = {
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,8,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,3,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+            };
+            for (int i = 0; i < ssize(arr); i++) {
+                for (int j = 0; j < ssize(arr[0]); j++) {
+                    if (arr[i][j] == 1) room.add_instance(new Block({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 2) room.add_instance(new Goal({ -100.0 + j * 10.0, -100 + i * 10.0 }, 7));
+                    if (arr[i][j] == 3) room.add_instance(new BulletBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                    if (arr[i][j] == 4) room.add_instance(new Battery({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 5) room.add_instance(new Key({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 6) room.add_instance(new FlickingBlockOn({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 7) room.add_instance(new FlickingBlockOff({ -100.0 + j * 10.0, -100 + i * 10.0 }));
+                    if (arr[i][j] == 8) room.add_instance(new LaserBlock({ -100.0 + j * 10.0, -100 + i * 10.0 }, 0));
+                }
+            }
         }
         else if (current_room == 1) {
             room.add_instance(new Player({120, -60 }));

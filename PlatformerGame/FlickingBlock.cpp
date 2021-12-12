@@ -23,11 +23,6 @@ void FlickingBlockOff::step() {
 
 void FlickingBlockOff::toggle() {
     auto pool = room->get_pool();
-    for (auto& e : pool) {
-        if (is_box_collide({ 0, 0 }, e)) {
-            room->del_instance(e);
-        }
-    }
     room->del_instance(this);
     room->add_instance(new FlickingBlockOn(pos));
 }

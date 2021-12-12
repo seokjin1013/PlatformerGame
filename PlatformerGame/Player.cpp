@@ -47,6 +47,8 @@ void Player::step() {
                     p->toggle();
                 }
                 else if (FlickingBlockOff* p = dynamic_cast<FlickingBlockOff*>(e)) {
+                    if (is_box_collide(velocity, p))
+                        room->del_instance(this);
                     p->toggle();
                 }
             }

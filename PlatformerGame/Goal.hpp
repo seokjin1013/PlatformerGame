@@ -6,8 +6,8 @@
 
 class Goal : public Object {
 public:
-    Goal(const Vec2<double>& pos, int next_room);
+    Goal(const Vec2<double>& pos, RoomIndex next_room);
     void step() override;
 private:
-    int next_room;
+    RoomIndex next_room;
 };

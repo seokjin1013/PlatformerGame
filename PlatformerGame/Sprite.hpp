@@ -18,6 +18,7 @@ enum class SpriteIndex {
     laser_block,
     button_block, button,
     flicking_block,
+    gui_button_start, gui_button_how, gui_button_exit,
     none
 };
 

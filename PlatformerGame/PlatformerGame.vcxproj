@@ -33,6 +33,13 @@
     <Image Include="FlickingBlock1.bmp" />
     <Image Include="FlickingBlock0.bmp" />
     <Image Include="Goal0.bmp" />
+    <Image Include="GuiButtonExit0.bmp" />
+    <Image Include="GuiButtonHow0.bmp" />
+    <Image Include="GuiButtonStart0.bmp" />
+    <Image Include="GuiButtonStart1.bmp" />
+    <Image Include="GuiButtonStart2.bmp" />
+    <Image Include="GuiButtonStart3.bmp" />
+    <Image Include="GuiButtonStart4.bmp" />
     <Image Include="Key0.bmp" />
     <Image Include="LaserBlock0.bmp" />
     <Image Include="Player0.bmp" />
@@ -42,6 +49,7 @@
     <Image Include="PlayerJump0.bmp" />
     <Image Include="PlayerJump1.bmp" />
     <Image Include="Title0.bmp" />
+    <Image Include="Title1.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Battery.cpp" />
@@ -55,12 +63,14 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FlickingBlock.cpp" />
     <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="GuiButton.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="LaserBlock.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayManager.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="RoomConstructor.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteImporter.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -84,11 +94,13 @@
     <ClInclude Include="Controller.hpp" />
     <ClInclude Include="FlickingBlock.hpp" />
     <ClInclude Include="Goal.hpp" />
+    <ClInclude Include="GuiButton.hpp" />
     <ClInclude Include="Key.hpp" />
     <ClInclude Include="LaserBlock.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="PlayManager.hpp" />
     <ClInclude Include="Room.hpp" />
+    <ClInclude Include="RoomConstructor.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="SpriteImporter.hpp" />
     <ClInclude Include="Title.hpp" />

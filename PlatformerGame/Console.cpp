@@ -149,6 +149,17 @@ void Console::set_char_board(const string& str, int y) {
     memcpy(char_board + utility::get_index(size, y, 0), str.c_str(), str.length() * sizeof(char));
 }
 
+void Console::apply_alpha_board_restart_room_effect(double ratio, bool fade_out) {
+    if (!fade_out && ratio == 1.0 || fade_out && ratio == 0.0) return;
+    ratio = - cos(ratio * numbers::pi) / 2 + 0.5;
+    for (int i = 0; i < size.y; ++i)
+        for (int j = 0; j < size.x; ++j)
+            if (fade_out && j < ratio * size.x)
+                alpha_board[size.x * i + j] = 0;
+            else if (!fade_out && j > ratio * size.x)
+                alpha_board[size.x * i + j] = 0;
+}
+
 void Console::set_char_board_from_alpha_board() {
     const char* const ascii = R"(@@@@@@@@@@@@@@@@@@@@@$$$$$$$$$$$$$$$$$$$$$$$$$########BBBB\\\\\\EEEEEEEE96Mg88GGGRRRR555%%%&&&DSSSbbd33PPeNNOaHHHssssqFF444CC22AAZmohKK===ww{{{{XXXXz[[ccVn]]LL???ffT7++++++JJJJJyyvvY))<>xxx______rrrrjjj//*~|^^^!!!!IIIIiii;;;""""::::--,,''''```.......      )";
     for (int i = 0; i < size.y; ++i)

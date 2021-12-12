@@ -2,12 +2,17 @@
 
 #include <algorithm>
 #include <deque>
-#include "Room.hpp"
 #include "Sprite.hpp"
 #include "Vec2.hpp"
 
 class Room;
 class Object;
+
+enum class RoomIndex {
+    title, how_to_play, stage_selection,
+    stage1, stage2, stage3, stage4, stage5,
+    none
+};
 
 struct ViewInfo {
     Vec2<double> pos = {0, 0};

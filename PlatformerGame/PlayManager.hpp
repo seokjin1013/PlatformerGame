@@ -22,6 +22,7 @@
 #include "View.hpp"
 #include "Title.hpp"
 #include "Room.hpp"
+#include "RoomConstructor.hpp"
 
 class PlayManager final {
 public:
@@ -32,8 +33,8 @@ public:
     PlayManager& operator=(PlayManager&&) = delete;
     void play();
     std::vector<std::string> str;
-    void set_room(int room);
-    int get_room();
+    void set_room(RoomIndex room);
+    RoomIndex get_room();
 
 private:
     PlayManager();
@@ -43,6 +44,8 @@ private:
     std::chrono::high_resolution_clock::time_point previous_time_real;
     std::chrono::duration<double, std::milli> delayed_time;
     double fps = 0, fps_real = 0, fps_standard = 60;
-    int current_room = 0;
+    RoomIndex current_room = RoomIndex::title;
     bool restart_room = false;
+    int restart_room_effect = 0;
+    int restart_room_effect_max = 60;
 };

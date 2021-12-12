@@ -107,6 +107,7 @@ SpriteArchive::SpriteArchive() {
     {
         SpriteImporter importer;
         importer.read_bmp24(R"(Title0.bmp)");
+        importer.read_bmp24(R"(Title1.bmp)");
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::title].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::title].alpha, spr, sizeof(int) * w * h * n);
@@ -158,6 +159,40 @@ SpriteArchive::SpriteArchive() {
         sprite[(int)SpriteIndex::flicking_block].center = { w / 2, h / 2 };
         sprite[(int)SpriteIndex::flicking_block].size = { w, h };
         sprite[(int)SpriteIndex::flicking_block].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(GuiButtonStart0.bmp)");
+        importer.read_bmp24(R"(GuiButtonStart1.bmp)");
+        importer.read_bmp24(R"(GuiButtonStart2.bmp)");
+        importer.read_bmp24(R"(GuiButtonStart3.bmp)");
+        importer.read_bmp24(R"(GuiButtonStart4.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::gui_button_start].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::gui_button_start].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::gui_button_start].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::gui_button_start].size = { w, h };
+        sprite[(int)SpriteIndex::gui_button_start].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(GuiButtonHow0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::gui_button_how].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::gui_button_how].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::gui_button_how].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::gui_button_how].size = { w, h };
+        sprite[(int)SpriteIndex::gui_button_how].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(GuiButtonExit0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::gui_button_exit].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::gui_button_exit].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::gui_button_exit].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::gui_button_exit].size = { w, h };
+        sprite[(int)SpriteIndex::gui_button_exit].number = n;
     }
     {
         int w = 0, h = 0, n = 0;

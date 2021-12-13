@@ -117,6 +117,29 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlay0.bmp)");
+        importer.read_bmp24(R"(HowToPlay1.bmp)");
+        importer.read_bmp24(R"(HowToPlay2.bmp)");
+        importer.read_bmp24(R"(HowToPlay3.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play].center = { 0, 0 };
+        sprite[(int)SpriteIndex::how_to_play].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(StageSelection0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::stage_selection].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::stage_selection].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::stage_selection].center = { 0, 0 };
+        sprite[(int)SpriteIndex::stage_selection].size = { w, h };
+        sprite[(int)SpriteIndex::stage_selection].number = n;
+    }
+    {
+        SpriteImporter importer;
         importer.read_bmp24(R"(BreakableBlock0.bmp)");
         importer.read_bmp24(R"(BreakableBlock1.bmp)");
         importer.read_bmp24(R"(BreakableBlock2.bmp)");
@@ -162,37 +185,101 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(GuiButtonStart0.bmp)");
-        importer.read_bmp24(R"(GuiButtonStart1.bmp)");
-        importer.read_bmp24(R"(GuiButtonStart2.bmp)");
-        importer.read_bmp24(R"(GuiButtonStart3.bmp)");
-        importer.read_bmp24(R"(GuiButtonStart4.bmp)");
+        importer.read_bmp24(R"(GuiMenuButton0.bmp)");
+        importer.read_bmp24(R"(GuiMenuButton1.bmp)");
+        importer.read_bmp24(R"(GuiMenuButton2.bmp)");
+        importer.read_bmp24(R"(GuiMenuButton3.bmp)");
+        importer.read_bmp24(R"(GuiMenuButton4.bmp)");
         auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::gui_button_start].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::gui_button_start].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::gui_button_start].center = { w / 2, h / 2 };
-        sprite[(int)SpriteIndex::gui_button_start].size = { w, h };
-        sprite[(int)SpriteIndex::gui_button_start].number = n;
+        sprite[(int)SpriteIndex::gui_menu_button].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::gui_menu_button].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::gui_menu_button].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::gui_menu_button].size = { w, h };
+        sprite[(int)SpriteIndex::gui_menu_button].number = n;
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(GuiButtonHow0.bmp)");
+        importer.read_bmp24(R"(GuiLevelButton0.bmp)");
+        importer.read_bmp24(R"(GuiLevelButton1.bmp)");
+        importer.read_bmp24(R"(GuiLevelButton2.bmp)");
+        importer.read_bmp24(R"(GuiLevelButton3.bmp)");
+        importer.read_bmp24(R"(GuiLevelButton4.bmp)");
         auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::gui_button_how].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::gui_button_how].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::gui_button_how].center = { w / 2, h / 2 };
-        sprite[(int)SpriteIndex::gui_button_how].size = { w, h };
-        sprite[(int)SpriteIndex::gui_button_how].number = n;
+        sprite[(int)SpriteIndex::gui_level_button].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::gui_level_button].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::gui_level_button].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::gui_level_button].size = { w, h };
+        sprite[(int)SpriteIndex::gui_level_button].number = n;
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(GuiButtonExit0.bmp)");
+        importer.read_bmp24(R"(TextStart0.bmp)");
         auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::gui_button_exit].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::gui_button_exit].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::gui_button_exit].center = { w / 2, h / 2 };
-        sprite[(int)SpriteIndex::gui_button_exit].size = { w, h };
-        sprite[(int)SpriteIndex::gui_button_exit].number = n;
+        sprite[(int)SpriteIndex::text_start].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::text_start].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::text_start].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::text_start].size = { w, h };
+        sprite[(int)SpriteIndex::text_start].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(TextHow0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::text_how].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::text_how].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::text_how].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::text_how].size = { w, h };
+        sprite[(int)SpriteIndex::text_how].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(TextExit0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::text_exit].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::text_exit].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::text_exit].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::text_exit].size = { w, h };
+        sprite[(int)SpriteIndex::text_exit].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(TextStageNumber0.bmp)");
+        importer.read_bmp24(R"(TextStageNumber1.bmp)");
+        importer.read_bmp24(R"(TextStageNumber2.bmp)");
+        importer.read_bmp24(R"(TextStageNumber3.bmp)");
+        importer.read_bmp24(R"(TextStageNumber4.bmp)");
+        importer.read_bmp24(R"(TextStageNumber5.bmp)");
+        importer.read_bmp24(R"(TextStageNumber6.bmp)");
+        importer.read_bmp24(R"(TextStageNumber7.bmp)");
+        importer.read_bmp24(R"(TextStageNumber8.bmp)");
+        importer.read_bmp24(R"(TextStageNumber9.bmp)");
+        importer.read_bmp24(R"(TextStageNumber10.bmp)");
+        importer.read_bmp24(R"(TextStageNumber11.bmp)");
+        importer.read_bmp24(R"(TextStageNumber12.bmp)");
+        importer.read_bmp24(R"(TextStageNumber13.bmp)");
+        importer.read_bmp24(R"(TextStageNumber14.bmp)");
+        importer.read_bmp24(R"(TextStageNumber15.bmp)");
+        importer.read_bmp24(R"(TextStageNumber16.bmp)");
+        importer.read_bmp24(R"(TextStageNumber17.bmp)");
+        importer.read_bmp24(R"(TextStageNumber18.bmp)");
+        importer.read_bmp24(R"(TextStageNumber19.bmp)");
+        importer.read_bmp24(R"(TextStageNumber20.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::text_stage_number].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::text_stage_number].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::text_stage_number].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::text_stage_number].size = { w, h };
+        sprite[(int)SpriteIndex::text_stage_number].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(Star0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::star].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::star].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::star].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::star].size = { w, h };
+        sprite[(int)SpriteIndex::star].number = n;
     }
     {
         int w = 0, h = 0, n = 0;

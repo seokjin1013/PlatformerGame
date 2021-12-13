@@ -10,6 +10,12 @@ void RoomConstructor::step() {
     if (current_room == RoomIndex::title) {
         room->add_instance(new Title(Vec2<int>{ 16, 9 } *-6));
     }
+    else if (current_room == RoomIndex::stage_selection) {
+        room->add_instance(new StageSelection(Vec2<int>{ 16, 9 } *-6));
+    }
+    else if (current_room == RoomIndex::how_to_play) {
+        room->add_instance(new HowToPlay(Vec2<int>{ 16, 9 } *-6));
+    }
     else if (current_room == RoomIndex::stage1) {
         room->add_instance(new Player({ 100, 20 }));
         int arr[40][40] = {

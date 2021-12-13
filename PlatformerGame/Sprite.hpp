@@ -11,14 +11,16 @@ struct Sprite {
 };
 
 enum class SpriteIndex { 
-    key, goal, title, battery,
+    key, goal, title, how_to_play, stage_selection, battery, star,
     player, player_jump,
     block, breakable_block, 
     bullet_block, bullet, 
     laser_block,
     button_block, button,
     flicking_block,
-    gui_button_start, gui_button_how, gui_button_exit,
+    gui_menu_button, gui_level_button,
+    text_start, text_how, text_exit,
+    text_stage_number,
     none
 };
 

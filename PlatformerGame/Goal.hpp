@@ -10,4 +10,5 @@ public:
     void step() override;
 private:
     RoomIndex next_room;
+    bool cleared = false;
 };

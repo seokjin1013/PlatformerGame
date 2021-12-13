@@ -21,6 +21,8 @@
 #include "Player.hpp"
 #include "View.hpp"
 #include "Title.hpp"
+#include "HowToPlay.hpp"
+#include "StageSelection.hpp"
 #include "Room.hpp"
 #include "RoomConstructor.hpp"
 
@@ -35,6 +37,9 @@ public:
     std::vector<std::string> str;
     void set_room(RoomIndex room);
     RoomIndex get_room();
+    void save_data();
+    void load_data();
+    int star_count[20];
 
 private:
     PlayManager();

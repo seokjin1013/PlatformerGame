@@ -69,7 +69,7 @@ void Player::step() {
 
         //collide check
         if (check_box_collision<Bullet>(Vec2<double>{0, 0})) room->del_instance(this);
-        // if(check_box_collision<Battery>(Vec2<double>{0, 0})) score+=1;
+        if (check_box_collision<Battery>(Vec2<double>{0, 0})) battery_count+=1;
     }
 
     //draw

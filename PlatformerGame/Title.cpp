@@ -14,9 +14,12 @@ void Title::step() {
             ++flicking_text_delay;
         for (int i = 7; i < 255; ++i)
             if (Controller::instance().key_pressed(i)) {
-                room->add_instance(menu[0] = new GuiButton(Vec2<int>{0, 9} *1, SpriteIndex::gui_button_start));
-                room->add_instance(menu[1] = new GuiButton(Vec2<int>{0, 9} *3, SpriteIndex::gui_button_how));
-                room->add_instance(menu[2] = new GuiButton(Vec2<int>{0, 9} *5, SpriteIndex::gui_button_exit));
+                room->add_instance(menu[0] = new GuiButton({ 0, 54 - 3 * 14 }, SpriteIndex::gui_menu_button));
+                room->add_instance(menu[1] = new GuiButton({ 0, 54 - 3 * 9 }, SpriteIndex::gui_menu_button));
+                room->add_instance(menu[2] = new GuiButton({ 0, 54 - 3 * 4 }, SpriteIndex::gui_menu_button));
+                room->add_instance(new Sticker(menu[0]->get_pos(), SpriteIndex::text_start, 0, menu[0]));
+                room->add_instance(new Sticker(menu[1]->get_pos(), SpriteIndex::text_how, 0, menu[1]));
+                room->add_instance(new Sticker(menu[2]->get_pos(), SpriteIndex::text_exit, 0, menu[2]));
                 menu[focus]->focus();
                 press = true;
                 sprite_info.image_index = 0;
@@ -42,10 +45,10 @@ void Title::step() {
     }
     else if (selected) {
         if (menu[0]->is_trigger_end) {
-            PlayManager::instance().set_room(RoomIndex::stage1);
+            PlayManager::instance().set_room(RoomIndex::stage_selection);
         }
         else if (menu[1]->is_trigger_end) {
-            PlayManager::instance().set_room(RoomIndex::stage2);
+            PlayManager::instance().set_room(RoomIndex::how_to_play);
         }
         else if (menu[2]->is_trigger_end) {
             exit(0);

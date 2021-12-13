@@ -10,6 +10,7 @@ PlayManager& PlayManager::instance() {
 }
 
 void PlayManager::play() {
+    load_data();
     Console console;
     console.hide_cursor();
     console.set_font_size(8);
@@ -19,6 +20,7 @@ void PlayManager::play() {
     while (true) {
         Room room(Vec2<int>{ 16, 9 } * 12);
         room.add_instance(new RoomConstructor({ 0, 0 }, current_room));
+        room.step();
         room.step();
         room.step();
         restart_room = false;
@@ -65,6 +67,8 @@ PlayManager::PlayManager() {
     previous_time = high_resolution_clock::now();
     previous_time_real = high_resolution_clock::now();
     delayed_time = 0s;
+    for (int i = 0; i < 20; ++i)
+        star_count[i] = 0;
 }
 
 bool PlayManager::frame_skip_or_waiting() {
@@ -80,4 +84,36 @@ bool PlayManager::frame_skip_or_waiting() {
     if (delayed_time < 0ms) this_thread::sleep_for(-delayed_time);
     previous_time_real = high_resolution_clock::now();
     return false;
+}
+
+void PlayManager::save_data() {
+    std::ofstream write_file;
+    write_file.open("Recall_Save_Data.txt");
+    if (write_file.is_open())
+        for (int i = 0; i < 20; ++i)
+            write_file << star_count[i] << ' ';
+    write_file.close();
+
+}
+void PlayManager::load_data() {
+    ifstream read_file;
+    read_file.open("Recall_Save_Data.txt");
+    if (read_file) {
+        if (read_file.is_open()) {
+            for (int i = 0; i < 20; ++i)
+                read_file >> star_count[i];
+            for (int i = 0; i < 20; ++i)
+                if (star_count[i] < 0 || star_count[i] > 3)
+                    throw "The save file is corrupt.";
+            for (int i = 0; i < 20; ++i)
+                for (int j = 0; j < i; ++j)
+                    if (star_count[i] > 0 && star_count[j] == 0)
+                        throw "The save file is corrupt.";
+        }
+        else
+            throw "Can't open the save file.";
+    }
+    else {
+        save_data();
+    }
 }

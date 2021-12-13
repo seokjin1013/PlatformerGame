@@ -5,6 +5,7 @@
 #include "Controller.hpp"
 #include "PlayManager.hpp"
 #include "GuiButton.hpp"
+#include "Sticker.hpp"
 
 class Title : public Object {
 public:

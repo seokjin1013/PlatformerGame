@@ -48,5 +48,4 @@ void GuiButton::focus() {
 
 void GuiButton::unfocus() {
 	is_focus = false;
-
 }

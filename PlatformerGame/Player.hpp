@@ -18,6 +18,7 @@ public:
     Player(const Vec2<double>& pos);
     virtual ~Player();
     void step() override;
+    int battery_count = 0;
 
 private:
     ControlAxis horizontal_move;

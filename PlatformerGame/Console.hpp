@@ -32,6 +32,7 @@ public:
     void clear();
     void set_alpha_board(const View& view, const Vec2<int>& rep_pos, const Vec2<int>& rep_size);
     void set_char_board(const std::string& str, int y);
+    void apply_alpha_board_pause_effect();
     void apply_alpha_board_restart_room_effect(double ratio, bool fade_out);
     void set_char_board_from_alpha_board();
     void draw();

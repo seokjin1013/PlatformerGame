@@ -27,7 +27,16 @@ void PlayManager::play() {
         restart_room_effect = 0;
         while (true) {
             Controller::instance().step();
-            if (restart_room || restart_room_effect == restart_room_effect_max)
+            if (int room_index = static_cast<int>(current_room);
+                room_index >= static_cast<int>(RoomIndex::stage1) && room_index <= static_cast<int>(RoomIndex::stage20)) {
+                if (Controller::instance().key_pressed('P'))
+                    is_pause = !is_pause;
+                else if (Controller::instance().key_pressed(VK_ESCAPE)) {
+                    is_pause = false;
+                    set_room(RoomIndex::stage_selection);
+                }
+            }
+            if ((restart_room || restart_room_effect == restart_room_effect_max) && !is_pause)
                 room.step();
             if (restart_room && restart_room_effect == restart_room_effect_max) break;
             if (restart_room_effect < restart_room_effect_max)
@@ -39,6 +48,7 @@ void PlayManager::play() {
                 console.clear();
                 console.set_alpha_board(view, { 0, 0 }, Vec2<int>{16, 9} *12);
                 console.apply_alpha_board_restart_room_effect(1.0 * restart_room_effect / restart_room_effect_max, restart_room);
+                if (is_pause) console.apply_alpha_board_pause_effect();
                 console.set_char_board_from_alpha_board();
                 str.emplace_back("fps : " + to_string(fps));
                 str.emplace_back("fps_real : " + to_string(fps_real));

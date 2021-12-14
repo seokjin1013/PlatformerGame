@@ -40,6 +40,7 @@ public:
     void save_data();
     void load_data();
     int star_count[20];
+    bool is_pause = false;
 
 private:
     PlayManager();

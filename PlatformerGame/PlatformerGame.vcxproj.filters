@@ -93,6 +93,15 @@
     <ClCompile Include="Sticker.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Follower.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="HowToPlayPlayerClone.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Utility.inl">
@@ -190,6 +199,15 @@
     <ClInclude Include="Sticker.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Particle.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Follower.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HowToPlayPlayerClone.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Battery0.bmp">
@@ -205,9 +223,6 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="BreakableBlock2.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Bullet0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="BulletBlock0.bmp">
@@ -262,18 +277,6 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="GuiMenuButton4.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="HowToPlay0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="HowToPlay1.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="HowToPlay2.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="HowToPlay3.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Key0.bmp">
@@ -385,6 +388,108 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Title1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Pause0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie5.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie6.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie7.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie8.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie9.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Bullet0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayText0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey6.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey7.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlaySpaceBar0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayArrow0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayArrow1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayCircle0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayCircle1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey8.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayKey5.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlaySpaceBar1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation5.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="HowToPlayInformation4.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

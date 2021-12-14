@@ -15,7 +15,9 @@ Player::Player(const Vec2<double>& pos) : Object(pos) {
 
 Player::~Player() {
     Controller::instance().del_control_axis(horizontal_move);
+    room->add_instance(new Particle(pos, SpriteIndex::player_die, 30));
     PlayManager::instance().set_room(PlayManager::instance().get_room());
+    if (!followers.empty()) followers.front()->set_target(nullptr);
 }
 
 void Player::step() {

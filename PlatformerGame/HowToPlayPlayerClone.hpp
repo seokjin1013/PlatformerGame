@@ -15,16 +15,14 @@
 
 class Block;
 
-class Player : public Object {
+class HowToPlayPlayerClone : public Object {
 public:
-    Player(const Vec2<double>& pos);
-    virtual ~Player();
+    HowToPlayPlayerClone(const Vec2<double>& pos);
+    virtual ~HowToPlayPlayerClone();
     void step() override;
-    int battery_count = 0;
-    std::deque<Follower*> followers;
+    bool left_key, right_key, up_key, space_bar_key;
 
 private:
-    ControlAxis horizontal_move;
     Vec2<double> velocity = { 0, 0 };
     double speed = 0.9, force = 0.15, gravity = 0.05, jump = 1.5;
 
@@ -37,4 +35,6 @@ private:
 
     int image_delay = 10;
     int image_remaining_delay = 0;
+    int move_direction = 0;
+    double move_value = 0;
 };

@@ -19,7 +19,7 @@ SpriteArchive::SpriteArchive() {
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::player].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::player].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::player].center = { w / 2, h };
+        sprite[(int)SpriteIndex::player].center = { w / 2, h / 2 };
         sprite[(int)SpriteIndex::player].size = { w, h };
         sprite[(int)SpriteIndex::player].number = n;
     }
@@ -30,9 +30,28 @@ SpriteArchive::SpriteArchive() {
         auto [spr, w, h, n] = importer.get();
         sprite[(int)SpriteIndex::player_jump].alpha = new int[w * h * n];
         memcpy(sprite[(int)SpriteIndex::player_jump].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::player_jump].center = { w / 2, h };
+        sprite[(int)SpriteIndex::player_jump].center = { w / 2, h / 2 };
         sprite[(int)SpriteIndex::player_jump].size = { w, h };
         sprite[(int)SpriteIndex::player_jump].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(PlayerDie0.bmp)");
+        importer.read_bmp24(R"(PlayerDie1.bmp)");
+        importer.read_bmp24(R"(PlayerDie2.bmp)");
+        importer.read_bmp24(R"(PlayerDie3.bmp)");
+        importer.read_bmp24(R"(PlayerDie4.bmp)");
+        importer.read_bmp24(R"(PlayerDie5.bmp)");
+        importer.read_bmp24(R"(PlayerDie6.bmp)");
+        importer.read_bmp24(R"(PlayerDie7.bmp)");
+        importer.read_bmp24(R"(PlayerDie8.bmp)");
+        importer.read_bmp24(R"(PlayerDie9.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::player_die].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::player_die].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::player_die].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::player_die].size = { w, h };
+        sprite[(int)SpriteIndex::player_die].number = n;
     }
     {
         SpriteImporter importer;
@@ -117,16 +136,79 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(HowToPlay0.bmp)");
-        importer.read_bmp24(R"(HowToPlay1.bmp)");
-        importer.read_bmp24(R"(HowToPlay2.bmp)");
-        importer.read_bmp24(R"(HowToPlay3.bmp)");
+        importer.read_bmp24(R"(HowToPlayText0.bmp)");
         auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::how_to_play].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::how_to_play].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::how_to_play].center = { 0, 0 };
-        sprite[(int)SpriteIndex::how_to_play].size = { w, h };
-        sprite[(int)SpriteIndex::how_to_play].number = n;
+        sprite[(int)SpriteIndex::how_to_play_text].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_text].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_text].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_text].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_text].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlayKey0.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey1.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey2.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey3.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey4.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey5.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey6.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey7.bmp)");
+        importer.read_bmp24(R"(HowToPlayKey8.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play_key].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_key].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_key].center = { w, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_key].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_key].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlayArrow0.bmp)");
+        importer.read_bmp24(R"(HowToPlayArrow1.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play_arrow].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_arrow].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_arrow].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_arrow].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_arrow].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlayCircle0.bmp)");
+        importer.read_bmp24(R"(HowToPlayCircle1.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play_circle].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_circle].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_circle].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_circle].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_circle].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlaySpaceBar0.bmp)");
+        importer.read_bmp24(R"(HowToPlaySpaceBar1.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play_space_bar].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_space_bar].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_space_bar].center = { w, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_space_bar].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_space_bar].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(HowToPlayInformation0.bmp)");
+        importer.read_bmp24(R"(HowToPlayInformation1.bmp)");
+        importer.read_bmp24(R"(HowToPlayInformation2.bmp)");
+        importer.read_bmp24(R"(HowToPlayInformation3.bmp)");
+        importer.read_bmp24(R"(HowToPlayInformation4.bmp)");
+        importer.read_bmp24(R"(HowToPlayInformation5.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::how_to_play_information].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::how_to_play_information].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::how_to_play_information].center = { 0, h / 2 };
+        sprite[(int)SpriteIndex::how_to_play_information].size = { w, h };
+        sprite[(int)SpriteIndex::how_to_play_information].number = n;
     }
     {
         SpriteImporter importer;
@@ -280,6 +362,16 @@ SpriteArchive::SpriteArchive() {
         sprite[(int)SpriteIndex::star].center = { w / 2, h / 2 };
         sprite[(int)SpriteIndex::star].size = { w, h };
         sprite[(int)SpriteIndex::star].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(Pause0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::pause].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::pause].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::pause].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::pause].size = { w, h };
+        sprite[(int)SpriteIndex::pause].number = n;
     }
     {
         int w = 0, h = 0, n = 0;

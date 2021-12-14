@@ -149,6 +149,15 @@ void Console::set_char_board(const string& str, int y) {
     memcpy(char_board + utility::get_index(size, y, 0), str.c_str(), str.length() * sizeof(char));
 }
 
+void Console::apply_alpha_board_pause_effect() {
+    const auto& pause = SpriteArchive::instance().get_sprite(SpriteIndex::pause);
+    for (int i = 0; i < pause.size.y; ++i)
+        for (int j = 0; j < pause.size.x; ++j) {
+            alpha_board[size.x * i + j * 2] = min(alpha_board[size.x * i + j * 2] + pause.alpha[pause.size.x * i + j], 255);
+            alpha_board[size.x * i + j * 2 + 1] = min(alpha_board[size.x * i + j * 2 + 1] + pause.alpha[pause.size.x * i + j], 255);
+        }
+}
+
 void Console::apply_alpha_board_restart_room_effect(double ratio, bool fade_out) {
     if (!fade_out && ratio == 1.0 || fade_out && ratio == 0.0) return;
     ratio = - cos(ratio * numbers::pi) / 2 + 0.5;

@@ -397,6 +397,34 @@ SpriteArchive::SpriteArchive() {
         sprite[(int)SpriteIndex::pause].number = n;
     }
     {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(Information0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::information].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::information].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::information].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::information].size = { w, h };
+        sprite[(int)SpriteIndex::information].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(InformationText0.bmp)");
+        importer.read_bmp24(R"(InformationText1.bmp)");
+        importer.read_bmp24(R"(InformationText2.bmp)");
+        importer.read_bmp24(R"(InformationText3.bmp)");
+        importer.read_bmp24(R"(InformationText4.bmp)");
+        importer.read_bmp24(R"(InformationText5.bmp)");
+        importer.read_bmp24(R"(InformationText6.bmp)");
+        importer.read_bmp24(R"(InformationText7.bmp)");
+        importer.read_bmp24(R"(InformationText8.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::information_text].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::information_text].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::information_text].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::information_text].size = { w, h };
+        sprite[(int)SpriteIndex::information_text].number = n;
+    }
+    {
         int w = 0, h = 0, n = 0;
         sprite[(int)SpriteIndex::none].alpha = nullptr;
         sprite[(int)SpriteIndex::none].center = {0, 0};

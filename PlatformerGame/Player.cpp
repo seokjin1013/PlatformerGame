@@ -38,6 +38,10 @@ void Player::step() {
         }
     }
     else {
+        if (Controller::instance().key_released(VK_SPACE))
+            if (check_box_collision<Block>({ 0, 0 }))
+                room->del_instance(this);
+
         //velocity calculate
         velocity.x = horizontal_move.value;
         velocity.y += gravity;
@@ -70,7 +74,11 @@ void Player::step() {
         move_box_collision<Block>(velocity);
 
         //collide check
-        if (check_box_collision<Bullet>(Vec2<double>{0, 0})) room->del_instance(this);
+        if (check_box_collision<Bullet>({ 0, 0 })) room->del_instance(this);
+        if (check_box_collision<Information>({ 0, 0 }))
+            room->view_info.information_alpha = min(room->view_info.information_alpha + 0.05, 1);
+        else
+            room->view_info.information_alpha = max(room->view_info.information_alpha - 0.05, 0);
     }
 
     //draw

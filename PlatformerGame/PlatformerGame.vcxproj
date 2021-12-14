@@ -34,6 +34,7 @@
     <ClCompile Include="GuiButton.cpp" />
     <ClCompile Include="HowToPlay.cpp" />
     <ClCompile Include="HowToPlayPlayerClone.cpp" />
+    <ClCompile Include="Information.cpp" />
     <ClCompile Include="Key.cpp" />
     <ClCompile Include="LaserBlock.cpp" />
     <ClCompile Include="main.cpp" />
@@ -71,6 +72,7 @@
     <ClInclude Include="GuiButton.hpp" />
     <ClInclude Include="HowToPlay.hpp" />
     <ClInclude Include="HowToPlayPlayerClone.hpp" />
+    <ClInclude Include="Information.hpp" />
     <ClInclude Include="Key.hpp" />
     <ClInclude Include="LaserBlock.hpp" />
     <ClInclude Include="Particle.hpp" />
@@ -134,6 +136,16 @@
     <Image Include="HowToPlaySpaceBar0.bmp" />
     <Image Include="HowToPlaySpaceBar1.bmp" />
     <Image Include="HowToPlayText0.bmp" />
+    <Image Include="Information0.bmp" />
+    <Image Include="InformationText0.bmp" />
+    <Image Include="InformationText1.bmp" />
+    <Image Include="InformationText2.bmp" />
+    <Image Include="InformationText3.bmp" />
+    <Image Include="InformationText4.bmp" />
+    <Image Include="InformationText5.bmp" />
+    <Image Include="InformationText6.bmp" />
+    <Image Include="InformationText7.bmp" />
+    <Image Include="InformationText8.bmp" />
     <Image Include="Key0.bmp" />
     <Image Include="LaserBlock0.bmp" />
     <Image Include="MovableBlock0.bmp" />

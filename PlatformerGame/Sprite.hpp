@@ -23,6 +23,7 @@ enum class SpriteIndex {
     gui_menu_button, gui_level_button,
     text_start, text_how, text_exit,
     text_stage_number,
+    information, information_text,
     none
 };
 

@@ -12,6 +12,7 @@
 #include "Vec2.hpp"
 #include "Particle.hpp"
 #include "Follower.hpp"
+#include "Information.hpp"
 
 class Block;
 

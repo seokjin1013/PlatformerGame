@@ -40,6 +40,7 @@ void View::draw(const Room& room) {
     apply_filter_time_recall_effect(view.time_recall_effect_strength, view.time_recall_effect_period, focus.x * 2, focus.y);
     draw_set_filter(alpha_board, alpha_board_init, border_size, filter_board_x, filter_board_y);
     draw_time_recall_bar(alpha_board, view);
+    apply_information_effect(view.information_sprite, view.information_alpha);
 }
 
 void View::draw_sprite(int* board, const Vec2<int>& size, const SpriteInfo& sprite_info, const Vec2<double>& pos) {
@@ -150,6 +151,23 @@ void View::apply_filter_time_recall_effect(double strength, double period, doubl
             filter_board_x[size.x * i + j] = c * strength * (1 + (dist / max_dist) * 3);
             filter_board_y[size.x * i + j] = s * strength / 2 * (1 + (dist / max_dist) * 3);
         }
+}
+
+void View::apply_information_effect(SpriteInfo information_info, double information_alpha) {
+    if (information_alpha == 0.0) return;
+    double x, y;
+    for (int i = size.y * 6 / 10; i < size.y * 7 / 10; ++i) {
+        x = (i - size.y * 6.0 / 10) / (size.y * 7.0 / 10 - size.y * 6.0 / 10);
+        y = (cos(x * numbers::pi) + 1) / 2;
+        for (int j = 0; j < size.x; ++j)
+            alpha_board[size.x * i + j] = static_cast<int>(alpha_board[size.x * i + j] * (1 - information_alpha * (1 - y)));
+    }
+    for (int i = size.y * 7 / 10; i < size.y; ++i) {
+        for (int j = 0; j < size.x; ++j)
+            alpha_board[size.x * i + j] = static_cast<int>(alpha_board[size.x * i + j] * (1 - information_alpha));
+    }
+    if (information_alpha > 0.5)
+        draw_sprite(alpha_board, size, information_info, { size.x / 4.0, size.y * 8.5 / 10 + 1 });
 }
 
 const int* View::get_alpha_board() const {

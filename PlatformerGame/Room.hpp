@@ -26,6 +26,8 @@ struct ViewInfo {
     double time_recall_effect_strength = 0;
     double time_recall_effect_period = 0;
     Vec2<double> time_recall_effect_focus;
+    SpriteInfo information_sprite;
+    double information_alpha = 0;
 };
 
 class Room {

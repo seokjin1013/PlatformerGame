@@ -102,6 +102,9 @@
     <ClCompile Include="HowToPlayPlayerClone.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Information.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Utility.inl">
@@ -206,6 +209,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="HowToPlayPlayerClone.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Information.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -505,6 +511,36 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="StageSelectionLock0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Information0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText5.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText6.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText7.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="InformationText8.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

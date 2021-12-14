@@ -71,7 +71,6 @@ void Player::step() {
 
         //collide check
         if (check_box_collision<Bullet>(Vec2<double>{0, 0})) room->del_instance(this);
-        if (check_box_collision<Battery>(Vec2<double>{0, 0})) battery_count+=1;
     }
 
     //draw
@@ -118,10 +117,6 @@ void Player::step() {
         view.time_recall_gauge_show = 0;
         view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 0, 0.05);
     }
-
-    stringstream ss;
-    ss << time_recall_gauge << ' ' << time_recall_sleep;
-    PlayManager::instance().str.push_back(ss.str());
 
     //room reset
     if (Controller::instance().key_pressed('R')) {

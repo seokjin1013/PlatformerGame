@@ -14,8 +14,8 @@ void Follower::set_target(Object* target) {
 void Follower::step() {
     if (target != nullptr) {
         target_pos = target->get_pos();
-        if (double dist = (pos - target_pos).norm(); dist > 5)
-            target_pos += (pos - target_pos) / dist * 5;
+        if (double dist = (pos - target_pos).norm(); dist > 7)
+            target_pos += (pos - target_pos) / dist * 7;
     }
     pos = utility::lerp(pos, target_pos, 0.1);
 }

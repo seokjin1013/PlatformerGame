@@ -8,6 +8,7 @@ void Battery::step() {
     for (Object* e : room->get_pool()) {
         if (Player* p = dynamic_cast<Player*>(e)) {
             if (is_box_collide({ 0, 0 }, p)) {
+                ++p->battery_count;
                 room->del_instance(this);
                 Object* target = nullptr;
                 if (p->followers.empty())

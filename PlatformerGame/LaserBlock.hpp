@@ -15,6 +15,6 @@ private:
     int rotate = 0;
     Vec2<double> dpos;
     int laser_thinness = 4;
-    double laser_range_max = 30;
+    double laser_range_max = 100;
     double laser_range = laser_range_max;
 };

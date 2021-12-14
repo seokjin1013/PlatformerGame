@@ -39,7 +39,7 @@ public:
     RoomIndex get_room();
     void save_data();
     void load_data();
-    int star_count[20];
+    int stage_star_count[20];
     bool is_pause = false;
 
 private:

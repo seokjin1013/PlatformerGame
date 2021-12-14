@@ -12,8 +12,8 @@ void Goal::step() {
                 if (is_box_collide({ 0, 0 }, p)) {
                     cleared = true;
                     int current_room = static_cast<int>(PlayManager::instance().get_room()) - static_cast<int>(RoomIndex::stage1);
-                    if (PlayManager::instance().star_count[current_room] < p->battery_count + 1) {
-                        PlayManager::instance().star_count[current_room] = p->battery_count + 1;
+                    if (PlayManager::instance().stage_star_count[current_room] < p->battery_count + 1) {
+                        PlayManager::instance().stage_star_count[current_room] = p->battery_count + 1;
                         PlayManager::instance().save_data();
                     }
                     PlayManager::instance().set_room(next_room);

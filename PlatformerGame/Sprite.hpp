@@ -13,7 +13,7 @@ struct Sprite {
 enum class SpriteIndex { 
     key, goal, title, battery, star, pause,
     how_to_play_text, how_to_play_information, how_to_play_key, how_to_play_space_bar, how_to_play_arrow, how_to_play_circle,
-    stage_selection_text, stage_selection_difficulty,
+    stage_selection_text, stage_selection_difficulty, stage_selection_lock,
     player, player_jump, player_die,
     block, breakable_block, 
     bullet_block, bullet, 

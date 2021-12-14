@@ -49,12 +49,12 @@ void HowToPlay::step() {
             information.push_back(new Sticker({ 2, 26 }, SpriteIndex::how_to_play_information, 2, this));
         }
         else if (page == 3) {
-            information.push_back(new Sticker({ -2 - 18 * 3, -20 }, SpriteIndex::how_to_play_key, 6, this));
-            information.push_back(new Sticker({ 2 - 18 * 3, -20 }, SpriteIndex::how_to_play_information, 3, this));
-            information.push_back(new Sticker({ -2 - 18 * 3, 0 }, SpriteIndex::how_to_play_key, 7, this));
-            information.push_back(new Sticker({ 2 - 18 * 3, 0 }, SpriteIndex::how_to_play_information, 4, this));
-            information.push_back(new Sticker({ -2 - 18 * 3, 20 }, SpriteIndex::how_to_play_key, 8, this));
-            information.push_back(new Sticker({ 2 - 18 * 3, 20 }, SpriteIndex::how_to_play_information, 5, this));
+            information.push_back(new Sticker({ -2 - 27, -20 }, SpriteIndex::how_to_play_key, 6, this));
+            information.push_back(new Sticker({ 2 - 27, -20 }, SpriteIndex::how_to_play_information, 3, this));
+            information.push_back(new Sticker({ -2 - 27, 0 }, SpriteIndex::how_to_play_key, 7, this));
+            information.push_back(new Sticker({ 2 - 27, 0 }, SpriteIndex::how_to_play_information, 4, this));
+            information.push_back(new Sticker({ -2 - 27, 20 }, SpriteIndex::how_to_play_key, 8, this));
+            information.push_back(new Sticker({ 2 - 27, 20 }, SpriteIndex::how_to_play_information, 5, this));
         }
         if (page != 3) {
             information.push_back(clone = new HowToPlayPlayerClone({ 0, -24 }));

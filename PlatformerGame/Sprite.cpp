@@ -235,6 +235,16 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
+        importer.read_bmp24(R"(StageSelectionLock0.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::stage_selection_lock].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::stage_selection_lock].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::stage_selection_lock].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::stage_selection_lock].size = { w, h };
+        sprite[(int)SpriteIndex::stage_selection_lock].number = n;
+    }
+    {
+        SpriteImporter importer;
         importer.read_bmp24(R"(BreakableBlock0.bmp)");
         importer.read_bmp24(R"(BreakableBlock1.bmp)");
         importer.read_bmp24(R"(BreakableBlock2.bmp)");

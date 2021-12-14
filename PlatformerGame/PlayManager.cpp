@@ -78,7 +78,7 @@ PlayManager::PlayManager() {
     previous_time_real = high_resolution_clock::now();
     delayed_time = 0s;
     for (int i = 0; i < 20; ++i)
-        star_count[i] = 0;
+        stage_star_count[i] = 0;
 }
 
 bool PlayManager::frame_skip_or_waiting() {
@@ -101,24 +101,31 @@ void PlayManager::save_data() {
     write_file.open("Recall_Save_Data.txt");
     if (write_file.is_open())
         for (int i = 0; i < 20; ++i)
-            write_file << star_count[i] << ' ';
+            write_file << stage_star_count[i] << ' ';
     write_file.close();
-
 }
+
 void PlayManager::load_data() {
     ifstream read_file;
     read_file.open("Recall_Save_Data.txt");
     if (read_file) {
         if (read_file.is_open()) {
+            for (int i = 0; i < 20; ++i) {
+                if (read_file.eof()) throw "The save file is corrupt.";
+                read_file >> stage_star_count[i];
+            }
+            int tmp;
+            if (read_file >> tmp) throw "The save file is corrupt.";
             for (int i = 0; i < 20; ++i)
-                read_file >> star_count[i];
-            for (int i = 0; i < 20; ++i)
-                if (star_count[i] < 0 || star_count[i] > 3)
+                if (stage_star_count[i] < 0 || stage_star_count[i] > 3)
                     throw "The save file is corrupt.";
-            for (int i = 0; i < 20; ++i)
-                for (int j = 0; j < i; ++j)
-                    if (star_count[i] > 0 && star_count[j] == 0)
+            for (int i = 0; i < 4; ++i)
+                for (int j = 0; j < 4; ++j)
+                    if (stage_star_count[i * 5 + j] == 0 && stage_star_count[i * 5 + j + 1] > 0)
                         throw "The save file is corrupt.";
+            for (int i = 0; i < 3; ++i)
+                if (stage_star_count[4] == 0 && stage_star_count[i * 5 + 5] > 0)
+                    throw "The save file is corrupt.";
         }
         else
             throw "Can't open the save file.";

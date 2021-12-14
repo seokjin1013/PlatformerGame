@@ -158,6 +158,7 @@
     <Image Include="StageSelectionDifficulty1.bmp" />
     <Image Include="StageSelectionDifficulty2.bmp" />
     <Image Include="StageSelectionDifficulty3.bmp" />
+    <Image Include="StageSelectionLock0.bmp" />
     <Image Include="StageSelectionText0.bmp" />
     <Image Include="Star0.bmp" />
     <Image Include="TextExit0.bmp" />

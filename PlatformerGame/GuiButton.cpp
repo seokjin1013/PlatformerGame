@@ -36,10 +36,29 @@ void GuiButton::step() {
 			pos.y = y;
 		}
 	}
+	if (is_denied) {
+		if (denied_motion_index == denied_motion_index_max) {
+			is_denied = false;
+			denied_motion_index = 0;
+		}
+		else {
+			denied_motion_index++;
+			int x = denied_motion_index;
+			int xmax = denied_motion_index_max;
+			int y = static_cast<int>(original_pos.x) + 
+				static_cast<int>((cos(numbers::pi * x / xmax) + 1) / 2 * (sin(numbers::pi * 6 * x / xmax)) * 4);
+			pos.x = y;
+		}
+	}
 }
 
 void GuiButton::trigger() {
 	is_trigger_start = true;
+}
+
+void GuiButton::denied() {
+	is_denied = true;
+	denied_motion_index = 0;
 }
 
 void GuiButton::focus() {

@@ -504,5 +504,8 @@
     <Image Include="StageSelectionDifficulty0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="StageSelectionLock0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

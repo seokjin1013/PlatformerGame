@@ -1,7 +1,7 @@
 #include "StageSelection.hpp"
 
 StageSelection::StageSelection(const Vec2<double>& pos) : Object(pos) {
-    sprite_info.sprite_index = SpriteIndex::stage_selection;
+    sprite_info.sprite_index = SpriteIndex::none;
     int star0 = 20, star3 = 20;
     for (int i = 19; i >= 0; --i) {
         if (PlayManager::instance().star_count[i] == 0)
@@ -20,9 +20,11 @@ StageSelection::StageSelection(const Vec2<double>& pos) : Object(pos) {
 void StageSelection::step() {
     if (!level_button_create) {
         level_button_create = true;
+        room->add_instance(new Sticker(Vec2<int>{0, -108 / 2 + 12}, SpriteIndex::stage_selection_text, 0, this));
         for (int i = 0; i < 4; ++i) {
+            room->add_instance(new Sticker(Vec2<int>{25, 20} *Vec2<int>{ -2, i - 1 } + Vec2<int>{0, 3}, SpriteIndex::stage_selection_difficulty, i, this));
             for (int j = 0; j < 5; ++j) {
-                room->add_instance(stage[i * 5 + j] = new GuiButton(Vec2<int>{30, 20} *Vec2<int>{ j - 2, i - 1 }, SpriteIndex::gui_level_button));
+                room->add_instance(stage[i * 5 + j] = new GuiButton(Vec2<int>{25, 20} *Vec2<int>{ j - 1, i - 1 } + Vec2<int>{-3, 0}, SpriteIndex::gui_level_button));
                 room->add_instance(new Sticker(stage[i * 5 + j]->get_pos(), SpriteIndex::text_stage_number, i * 5 + j + 1, stage[i * 5 + j]));
                 for (int k = 0; k < PlayManager::instance().star_count[i * 5 + j]; ++k) {
                     room->add_instance(new Sticker(stage[i * 5 + j]->get_pos() + Vec2<int>{ -6 + 6 * k, 8 }, SpriteIndex::star, 0, stage[i * 5 + j]));

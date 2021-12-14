@@ -306,9 +306,6 @@
     <Image Include="PlayerJump1.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="StageSelection0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="Star0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
@@ -490,6 +487,21 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="HowToPlayInformation4.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="StageSelectionText0.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="StageSelectionDifficulty3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="StageSelectionDifficulty2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="StageSelectionDifficulty1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="StageSelectionDifficulty0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

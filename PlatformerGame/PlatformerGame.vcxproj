@@ -154,7 +154,11 @@
     <Image Include="PlayerDie9.bmp" />
     <Image Include="PlayerJump0.bmp" />
     <Image Include="PlayerJump1.bmp" />
-    <Image Include="StageSelection0.bmp" />
+    <Image Include="StageSelectionDifficulty0.bmp" />
+    <Image Include="StageSelectionDifficulty1.bmp" />
+    <Image Include="StageSelectionDifficulty2.bmp" />
+    <Image Include="StageSelectionDifficulty3.bmp" />
+    <Image Include="StageSelectionText0.bmp" />
     <Image Include="Star0.bmp" />
     <Image Include="TextExit0.bmp" />
     <Image Include="TextHow0.bmp" />

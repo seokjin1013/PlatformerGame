@@ -160,13 +160,16 @@ void Console::apply_alpha_board_pause_effect() {
 
 void Console::apply_alpha_board_restart_room_effect(double ratio, bool fade_out) {
     if (!fade_out && ratio == 1.0 || fade_out && ratio == 0.0) return;
-    ratio = - cos(ratio * numbers::pi) / 2 + 0.5;
+    int lidx = (ratio < 1.0 / 3) ? 0 : static_cast<int>((-cos((ratio - 1.0 / 3) * numbers::pi * 3 / 2) / 2 + 0.5) * size.x);
+    int ridx = (ratio > 2.0 / 3) ? size.x : static_cast<int>((-cos(ratio * numbers::pi * 3 / 2) / 2 + 0.5) * size.x);
     for (int i = 0; i < size.y; ++i)
-        for (int j = 0; j < size.x; ++j)
-            if (fade_out && j < ratio * size.x)
-                alpha_board[size.x * i + j] = 0;
-            else if (!fade_out && j > ratio * size.x)
-                alpha_board[size.x * i + j] = 0;
+        for (int j = 0; j < size.x; ++j) {
+            int& pixel = alpha_board[size.x * i + j];
+            if (fade_out && j < lidx) pixel = 0;
+            else if (fade_out && j < ridx) pixel = static_cast<int>(1.0 * (j - lidx) / (ridx - lidx) * pixel);
+            else if (!fade_out && j > ridx) pixel = 0;
+            else if (!fade_out && j > lidx) pixel = static_cast<int>(1.0 * (ridx - j) / (ridx - lidx) * pixel);;
+        }
 }
 
 void Console::set_char_board_from_alpha_board() {

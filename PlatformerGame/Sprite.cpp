@@ -212,13 +212,26 @@ SpriteArchive::SpriteArchive() {
     }
     {
         SpriteImporter importer;
-        importer.read_bmp24(R"(StageSelection0.bmp)");
+        importer.read_bmp24(R"(StageSelectionText0.bmp)");
         auto [spr, w, h, n] = importer.get();
-        sprite[(int)SpriteIndex::stage_selection].alpha = new int[w * h * n];
-        memcpy(sprite[(int)SpriteIndex::stage_selection].alpha, spr, sizeof(int) * w * h * n);
-        sprite[(int)SpriteIndex::stage_selection].center = { 0, 0 };
-        sprite[(int)SpriteIndex::stage_selection].size = { w, h };
-        sprite[(int)SpriteIndex::stage_selection].number = n;
+        sprite[(int)SpriteIndex::stage_selection_text].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::stage_selection_text].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::stage_selection_text].center = { w / 2, h / 2 };
+        sprite[(int)SpriteIndex::stage_selection_text].size = { w, h };
+        sprite[(int)SpriteIndex::stage_selection_text].number = n;
+    }
+    {
+        SpriteImporter importer;
+        importer.read_bmp24(R"(StageSelectionDifficulty0.bmp)");
+        importer.read_bmp24(R"(StageSelectionDifficulty1.bmp)");
+        importer.read_bmp24(R"(StageSelectionDifficulty2.bmp)");
+        importer.read_bmp24(R"(StageSelectionDifficulty3.bmp)");
+        auto [spr, w, h, n] = importer.get();
+        sprite[(int)SpriteIndex::stage_selection_difficulty].alpha = new int[w * h * n];
+        memcpy(sprite[(int)SpriteIndex::stage_selection_difficulty].alpha, spr, sizeof(int) * w * h * n);
+        sprite[(int)SpriteIndex::stage_selection_difficulty].center = { w, h / 2 };
+        sprite[(int)SpriteIndex::stage_selection_difficulty].size = { w, h };
+        sprite[(int)SpriteIndex::stage_selection_difficulty].number = n;
     }
     {
         SpriteImporter importer;

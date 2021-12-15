@@ -38,7 +38,7 @@ void Title::step() {
                 menu[focus]->focus();
             }
         }
-        if (Controller::instance().key_pressed(VK_RETURN) || Controller::instance().key_pressed(VK_DOWN)) {
+        if (Controller::instance().key_pressed(VK_RETURN) || Controller::instance().key_pressed(VK_SPACE)) {
             menu[focus]->trigger();
             selected = true;
         }

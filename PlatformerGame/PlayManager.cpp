@@ -41,7 +41,7 @@ void PlayManager::play() {
             if (restart_room && restart_room_effect == restart_room_effect_max) break;
             if (restart_room_effect < restart_room_effect_max)
                 ++restart_room_effect;
-            str.emplace_back("frame_stacked");
+            //str.emplace_back("frame_stacked");
             if (!frame_skip_or_waiting()) {
                 view.clear();
                 view.draw(room);
@@ -50,12 +50,12 @@ void PlayManager::play() {
                 console.apply_alpha_board_restart_room_effect(1.0 * restart_room_effect / restart_room_effect_max, restart_room);
                 if (is_pause) console.apply_alpha_board_pause_effect();
                 console.set_char_board_from_alpha_board();
-                str.emplace_back("fps : " + to_string(fps));
-                str.emplace_back("fps_real : " + to_string(fps_real));
-                str.emplace_back("delayed_time : " + to_string(delayed_time.count()));
-                for (int i = 0; i < ssize(str); ++i)
-                    console.set_char_board(str[i], i);
-                str.clear();
+                //str.emplace_back("fps : " + to_string(fps));
+                //str.emplace_back("fps_real : " + to_string(fps_real));
+                //str.emplace_back("delayed_time : " + to_string(delayed_time.count()));
+                //for (int i = 0; i < ssize(str); ++i)
+                //    console.set_char_board(str[i], i);
+                //str.clear();
                 console.draw();
             }
         }

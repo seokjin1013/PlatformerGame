@@ -423,60 +423,60 @@ void RoomConstructor::step() {
         }
     }
     else if (current_room == RoomIndex::stage10) {
-    int arr[35][50] = {
-        {0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0},
-        {0,0,0,0,0,1,0,0,14,0,0,0,0,1,0,0,0,0,0},
-        {0,0,0,0,0,1,4,0,14,-1,0,16,0,1,0,0,0,0,0},
-        {0,0,0,0,0,1,1,13,15,3,15,12,1,1,0,0,0,0,0},
-        {0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,1,0,0,0,8,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,9,0,0,0,1,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,1,0,0,0,8,0,0,0,0,0,0,0},
-        {1,1,1,1,11,1,1,1,0,0,0,1,1,1,1,1,1,1,1},
-        {1,2,17,0,18,0,0,18,0,0,0,0,0,0,0,0,0,0,1},
-        {1,1,0,0,0,0,0,0,1,3,1,0,0,0,0,0,0,0,1},
-        {1,0,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,1},
-        {1,1,0,0,0,0,0,13,17,0,0,1,0,0,1,1,0,1,1},
-        {1,0,0,0,0,0,17,12,0,0,0,1,9,0,0,0,0,0,1},
-        {1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1},
-        {1,0,0,16,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1},
-        {1,0,0,3,0,0,0,1,0,0,0,8,13,14,0,0,0,1,1},
-        {1,1,0,0,0,0,0,9,0,0,0,1,0,0,0,0,0,0,1},
-        {1,0,0,0,0,1,0,1,0,3,0,8,0,9,0,0,0,1,1},
-        {1,1,0,0,0,0,0,9,0,3,0,1,0,0,0,0,0,0,1},
-        {1,0,0,0,0,0,0,1,3,3,3,1,3,3,3,3,3,3,1},
-        {1,1,0,0,0,16,1,1,3,5,3,1,4,3,3,10,3,16,1},
-        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-    };
-    Vec2<int> player_idx;
-    for (int i = 0; i < ssize(arr); i++)
-        for (int j = 0; j < ssize(arr[0]); j++)
-            if (arr[i][j] == -1)
-                player_idx = { j, i };
-    for (int i = 0; i < ssize(arr); i++) {
-        for (int j = 0; j < ssize(arr[0]); j++) {
-            Vec2<int> pos = (Vec2<int>{ j, i } - player_idx) * 10;
-            if (arr[i][j] == -1) room->add_instance(new Player(pos));
-            else if (arr[i][j] == 1) room->add_instance(new Block(pos));
-            else if (arr[i][j] == 2) room->add_instance(new Goal(pos, RoomIndex::stage11));
-            else if (arr[i][j] == 3) room->add_instance(new BreakableBlock(pos));
-            else if (arr[i][j] == 4) room->add_instance(new Battery(pos));
-            else if (arr[i][j] == 5) room->add_instance(new Key(pos));
-            else if (arr[i][j] == 6) room->add_instance(new BulletBlock(pos, 3));
-            else if (arr[i][j] == 7) room->add_instance(new BulletBlock(pos, 1));
-            else if (arr[i][j] == 8) room->add_instance(new BulletBlock(pos, 2));
-            else if (arr[i][j] == 9) room->add_instance(new BulletBlock(pos, 0));
-            else if (arr[i][j] == 10)room->add_instance(new LaserBlock(pos, 3));
-            else if (arr[i][j] == 11)room->add_instance(new LaserBlock(pos, 1));
-            else if (arr[i][j] == 12)room->add_instance(new LaserBlock(pos, 2));
-            else if (arr[i][j] == 13)room->add_instance(new LaserBlock(pos, 0));
-            else if (arr[i][j] == 14)room->add_instance(new FlickingBlockOn(pos));
-            else if (arr[i][j] == 15)room->add_instance(new FlickingBlockOff(pos));
-            else if (arr[i][j] == 16) room->add_instance(new Button(pos, 0));
-            else if (arr[i][j] == 17) room->add_instance(new ButtonBlockOff(pos));
-            else if (arr[i][j] == 18) room->add_instance(new ButtonBlockOn(pos));
+        int arr[35][50] = {
+            {0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0},
+            {0,0,0,0,0,1,0,0,14,0,0,0,0,1,0,0,0,0,0},
+            {0,0,0,0,0,1,4,0,14,-1,0,0,0,1,0,0,0,0,0},
+            {0,0,0,0,0,1,1,13,15,3,15,12,1,1,0,0,0,0,0},
+            {0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,1,0,0,0,8,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,9,0,0,0,1,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,1,0,0,0,8,0,0,0,0,0,0,0},
+            {1,1,1,1,11,1,1,1,0,0,0,1,1,1,1,1,1,1,1},
+            {1,2,17,0,18,0,0,18,0,0,0,0,0,0,0,0,0,0,1},
+            {1,1,0,0,0,0,0,0,1,3,1,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,1},
+            {1,1,0,0,0,0,0,13,17,0,0,1,0,0,1,1,0,1,1},
+            {1,0,0,0,0,0,17,12,0,0,0,1,9,0,0,0,0,0,1},
+            {1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1},
+            {1,0,0,16,0,0,1,1,0,0,0,1,0,0,0,0,0,0,1},
+            {1,0,0,3,0,0,0,1,0,0,0,8,13,14,0,0,0,1,1},
+            {1,1,0,0,0,0,0,9,0,0,0,1,0,0,0,0,0,0,1},
+            {1,0,0,0,0,1,0,1,0,3,0,8,0,9,0,0,0,1,1},
+            {1,1,0,0,0,0,0,9,0,3,0,1,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,1,3,3,3,1,3,3,3,3,3,3,1},
+            {1,1,0,0,0,16,1,1,3,5,3,1,4,3,3,10,3,16,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+        };
+        Vec2<int> player_idx;
+        for (int i = 0; i < ssize(arr); i++)
+            for (int j = 0; j < ssize(arr[0]); j++)
+                if (arr[i][j] == -1)
+                    player_idx = { j, i };
+        for (int i = 0; i < ssize(arr); i++) {
+            for (int j = 0; j < ssize(arr[0]); j++) {
+                Vec2<int> pos = (Vec2<int>{ j, i } - player_idx) * 10;
+                if (arr[i][j] == -1) room->add_instance(new Player(pos));
+                else if (arr[i][j] == 1) room->add_instance(new Block(pos));
+                else if (arr[i][j] == 2) room->add_instance(new Goal(pos, RoomIndex::stage11));
+                else if (arr[i][j] == 3) room->add_instance(new BreakableBlock(pos));
+                else if (arr[i][j] == 4) room->add_instance(new Battery(pos));
+                else if (arr[i][j] == 5) room->add_instance(new Key(pos));
+                else if (arr[i][j] == 6) room->add_instance(new BulletBlock(pos, 3));
+                else if (arr[i][j] == 7) room->add_instance(new BulletBlock(pos, 1));
+                else if (arr[i][j] == 8) room->add_instance(new BulletBlock(pos, 2));
+                else if (arr[i][j] == 9) room->add_instance(new BulletBlock(pos, 0));
+                else if (arr[i][j] == 10)room->add_instance(new LaserBlock(pos, 3));
+                else if (arr[i][j] == 11)room->add_instance(new LaserBlock(pos, 1));
+                else if (arr[i][j] == 12)room->add_instance(new LaserBlock(pos, 2));
+                else if (arr[i][j] == 13)room->add_instance(new LaserBlock(pos, 0));
+                else if (arr[i][j] == 14)room->add_instance(new FlickingBlockOn(pos));
+                else if (arr[i][j] == 15)room->add_instance(new FlickingBlockOff(pos));
+                else if (arr[i][j] == 16) room->add_instance(new Button(pos, 0));
+                else if (arr[i][j] == 17) room->add_instance(new ButtonBlockOff(pos));
+                else if (arr[i][j] == 18) room->add_instance(new ButtonBlockOn(pos));
+            }
         }
-    }
     }
     else if (current_room == RoomIndex::stage11) {
         int arr[30][60] = {

@@ -6,7 +6,7 @@ BulletBlock::BulletBlock(const Vec2<double>& pos, int rotate) : Block(pos) {
     sprite_info.image_angle = rotate;
     if (rotate == 0) dpos = { 10, 0 };
     else if (rotate == 1) dpos = { -1, 10 };
-    else if (rotate == 2) dpos = { -10, 0 };
+    else if (rotate == 2) dpos = { -10, -1 };
     else if (rotate == 3) dpos = { 0, -10 };
 }
 

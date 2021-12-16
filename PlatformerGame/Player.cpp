@@ -23,8 +23,17 @@ Player::~Player() {
 void Player::step() {
     bool step_on = check_box_collision<Block>(Vec2<double>::DOWN() * epsilon);
 
+    if (Controller::instance().key_pressed(VK_SPACE))
+        is_time_recall = true;
+    else if (Controller::instance().key_released(VK_SPACE)) {
+        if (is_time_recall)
+            if (check_box_collision<Block>({ 0, 0 }))
+                room->del_instance(this);
+        is_time_recall = false;
+    }
+
     //time recall
-    if (Controller::instance().key_down(VK_SPACE)) {
+    if (is_time_recall) {
         if (time_recall_gauge > 0) {
             time_recall_sleep = time_recall_sleep_max;
             --time_recall_gauge;
@@ -38,10 +47,6 @@ void Player::step() {
         }
     }
     else {
-        if (Controller::instance().key_released(VK_SPACE))
-            if (check_box_collision<Block>({ 0, 0 }))
-                room->del_instance(this);
-
         //velocity calculate
         velocity.x = horizontal_move.value;
         velocity.y += gravity;
@@ -109,7 +114,7 @@ void Player::step() {
     //view
     ViewInfo& view = room->view_info;
     view.pos = utility::lerp<Vec2<double>>(view.pos, pos, 0.02);
-    if (Controller::instance().key_down(VK_SPACE)) {
+    if (is_time_recall) {
         view.time_recall_gauge_show = 2;
         view.time_recall_effect_strength = utility::lerp<double>(view.time_recall_effect_strength, 1, 0.05);
         view.time_recall_gauge_rate = 1.0 * time_recall_gauge / time_recall_gauge_max;

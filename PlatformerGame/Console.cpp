@@ -50,25 +50,25 @@ void Console::unfix_screen_size() const {
 }
 
 bool Console::hide_cursor() const {
-    const char* const virt = "\033[?25l";
-    fwrite(virt, sizeof(char), strlen(virt), stdout);
-    return true;
-    //CONSOLE_CURSOR_INFO info;
-    //if (!GetConsoleCursorInfo(output_handle, &info)) return false;
-    //info.bVisible = 0;
-    //if (!SetConsoleCursorInfo(output_handle, &info)) return false;
+    //const char* const virt = "\033[?25l";
+    //fwrite(virt, sizeof(char), strlen(virt), stdout);
     //return true;
+    CONSOLE_CURSOR_INFO info;
+    if (!GetConsoleCursorInfo(output_handle, &info)) return false;
+    info.bVisible = 0;
+    if (!SetConsoleCursorInfo(output_handle, &info)) return false;
+    return true;
 }
 
 bool Console::show_cursor() const {
-    const char* const virt = "\033[?25h";
-    fwrite(virt, sizeof(char), strlen(virt), stdout);
-    return true;
-    //CONSOLE_CURSOR_INFO info;
-    //if (!GetConsoleCursorInfo(output_handle, &info)) return false;
-    //info.bVisible = 1;
-    //if (!SetConsoleCursorInfo(output_handle, &info)) return false;
+    //const char* const virt = "\033[?25h";
+    //fwrite(virt, sizeof(char), strlen(virt), stdout);
     //return true;
+    CONSOLE_CURSOR_INFO info;
+    if (!GetConsoleCursorInfo(output_handle, &info)) return false;
+    info.bVisible = 1;
+    if (!SetConsoleCursorInfo(output_handle, &info)) return false;
+    return true;
 }
 
 void Console::set_font_size(int size) const {

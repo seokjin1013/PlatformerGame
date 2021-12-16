@@ -38,4 +38,6 @@ private:
 
     int image_delay = 10;
     int image_remaining_delay = 0;
+
+    bool is_time_recall = false;
 };

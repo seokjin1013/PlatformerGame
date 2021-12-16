@@ -58,7 +58,7 @@ void StageSelection::step() {
             focus = nxt_focus;
             stage[focus]->focus();
         }
-        if (Controller::instance().key_pressed(VK_RETURN)) {
+        if (Controller::instance().key_pressed(VK_RETURN) || Controller::instance().key_pressed(VK_SPACE)) {
             if (is_stage_unlocked(focus)) {
                 stage[focus]->trigger();
                 selected = true;

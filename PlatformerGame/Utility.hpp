@@ -1,8 +1,6 @@
 #pragma once
 
 #define NOMINMAX
-#include <algorithm>
-#include <initializer_list>
 #include "Vec2.hpp"
 
 namespace utility {

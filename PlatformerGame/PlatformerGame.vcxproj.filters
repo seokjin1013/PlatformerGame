@@ -291,9 +291,6 @@
     <Image Include="LaserBlock0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="MovableBlock0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="Player0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>

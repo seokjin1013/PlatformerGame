@@ -22,7 +22,6 @@ void FlickingBlockOff::step() {
 }
 
 void FlickingBlockOff::toggle() {
-    auto pool = room->get_pool();
-    room->del_instance(this);
     room->add_instance(new FlickingBlockOn(pos));
+    room->del_instance(this);
 }

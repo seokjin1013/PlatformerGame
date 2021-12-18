@@ -13,7 +13,6 @@ class Console {
     HANDLE output_handle = GetStdHandle(STD_OUTPUT_HANDLE);
     HWND hWnd = GetConsoleWindow();
     int* alpha_board;
-    int* denominator_board;
     char* char_board;
     Vec2<int> size;
 

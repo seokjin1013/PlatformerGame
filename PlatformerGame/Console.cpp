@@ -4,10 +4,8 @@ using namespace std;
 
 Console::Console() {
     alpha_board = new int[MAX_RESOLUTION.area()];
-    denominator_board = new int[MAX_RESOLUTION.area()];
     char_board = new char[MAX_RESOLUTION.area()];
     memset(alpha_board, 0, MAX_RESOLUTION.area() * sizeof(int));
-    memset(denominator_board, 0, MAX_RESOLUTION.area() * sizeof(int));
     memset(char_board, 0, MAX_RESOLUTION.area() * sizeof(char));
 }
 

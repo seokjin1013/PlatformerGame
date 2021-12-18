@@ -148,7 +148,6 @@
     <Image Include="InformationText8.bmp" />
     <Image Include="Key0.bmp" />
     <Image Include="LaserBlock0.bmp" />
-    <Image Include="MovableBlock0.bmp" />
     <Image Include="Pause0.bmp" />
     <Image Include="Player0.bmp" />
     <Image Include="Player1.bmp" />

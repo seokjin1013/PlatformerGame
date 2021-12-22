@@ -387,40 +387,7 @@
     <Image Include="Title0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Title1.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="Pause0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie0.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie1.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie2.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie3.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie4.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie5.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie6.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie7.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie8.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="PlayerDie9.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Bullet0.bmp">
@@ -538,6 +505,12 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="InformationText8.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Title1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="PlayerDie0.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

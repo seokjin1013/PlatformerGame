@@ -18,6 +18,7 @@ StageSelection::StageSelection(const Vec2<double>& pos) : Object(pos) {
 }
 
 bool is_stage_unlocked(int stage) {
+    if (stage >= 5 && stage < 10 || stage >= 15 && stage < 20) return false;
     if (stage == 0) return true;
     if (stage != 10 && stage != 15 && PlayManager::instance().stage_star_count[stage - 1] > 0) return true;
     if ((stage == 10 || stage == 15) && PlayManager::instance().stage_star_count[4] > 0) return true;

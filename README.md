@@ -6,6 +6,24 @@ C++20과 콘솔창 출력으로만 만든 플랫포머 게임입니다.
 
 앞으로의 업데이트는 없을 예정입니다. (2021.12.22.)
 
+## 역할 분담
+
+### 내가 한 부분
+
+1. BulletBlock, Player 시간역행 부분 버그 수정
+2. LaserBlock 리뉴얼
+3. 그외 모든 것 (Block, BreakableBlock, Button, ButtonBlock, Console, Controller, FlickingBlock, Follower, GuiButton, HowToPlay, HowToPlayPlayerClone, Information, Particle, Player 나머지(충돌처리, 조작 관련 등), PlayManager, Room, RoomConstructor, Sprite, SpriteImporter, StageSelection, Sticker, Title, View)
+4. Battery, Block, BreakableBlock, Button, ButtonBlock, FlickingBlock, Goal, GuiLevelButton, GuiMenuButton, HowToPlay*, Information*, Pause, Player, PlayerJump, StageSelection*, Star, Text* 의 bmp파일 디자인
+5. 1~5스테이지 레벨 디자인
+
+### 팀원께서 해주신 부분
+
+1. Battery, Bullet, BulletBlock, Goal, Key, LaserBlock, Player 시간역행 부분 초기 커밋
+2. 6~20스테이지 레벨 디자인
+3. Bullet, BulletBlock, LaserBlock, PlayerDie의 bmp파일 디자인
+
+6 ~10, 16 ~20스테이지를 디자인해주신 팀원 분의 허락을 받지 않아 해당 스테이지는 제거하였습니다.
+
 ## 실행
 
 코드는 **visual studio**로 빌드합니다.
@@ -57,21 +75,3 @@ START를 선택해 스테이지 선택 화면으로 갈 수 있고 HOW를 선택
 2. 첫 화면에서 shift를 누르면 메뉴를 선택했을 때 모션이 이상하게 나옵니다.
 
 1번 버그는 심각한 버그이지만 현재 충돌 처리를 하는 모든 스프라이트는 정사각형이어서 플레이 하는 데에 지장은 없습니다.
-
-## 역할 분담
-
-### 내가 한 부분
-
-1. BulletBlock, Player 시간역행 부분 버그 수정
-2. LaserBlock 리뉴얼
-3. 그외 모든 것 (Block, BreakableBlock, Button, ButtonBlock, Console, Controller, FlickingBlock, Follower, GuiButton, HowToPlay, HowToPlayPlayerClone, Information, Particle, Player 나머지(충돌처리, 조작 관련 등), PlayManager, Room, RoomConstructor, Sprite, SpriteImporter, StageSelection, Sticker, Title, View)
-4. Battery, Block, BreakableBlock, Button, ButtonBlock, FlickingBlock, Goal, GuiLevelButton, GuiMenuButton, HowToPlay*, Information*, Pause, Player, PlayerJump, StageSelection*, Star, Text* 의 bmp파일 디자인
-5. 1~5스테이지 레벨 디자인
-
-### 팀원께서 해주신 부분
-
-1. Battery, Bullet, BulletBlock, Goal, Key, LaserBlock, Player 시간역행 부분 초기 커밋
-2. 6~20스테이지 레벨 디자인
-3. Bullet, BulletBlock, LaserBlock, PlayerDie의 bmp파일 디자인
-
-6 ~10, 16 ~20스테이지를 디자인해주신 팀원 분의 허락을 받지 않아 해당 스테이지는 제거하였습니다.

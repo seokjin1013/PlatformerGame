@@ -10,10 +10,10 @@ C++20과 콘솔창 출력으로만 만든 플랫포머 게임입니다.
 
 ### 내가 한 부분
 
-1. BulletBlock, Player 시간역행 부분 버그 수정
-2. LaserBlock 리뉴얼
-3. 그외 모든 것 (Block, BreakableBlock, Button, ButtonBlock, Console, Controller, FlickingBlock, Follower, GuiButton, HowToPlay, HowToPlayPlayerClone, Information, Particle, Player 나머지(충돌처리, 조작 관련 등), PlayManager, Room, RoomConstructor, Sprite, SpriteImporter, StageSelection, Sticker, Title, View)
-4. Battery, Block, BreakableBlock, Button, ButtonBlock, FlickingBlock, Goal, GuiLevelButton, GuiMenuButton, HowToPlay*, Information*, Pause, Player, PlayerJump, StageSelection*, Star, Text* 의 bmp파일 디자인
+1. Block, BreakableBlock, Button, ButtonBlock, Console, Controller, FlickingBlock, Follower, GuiButton, HowToPlay, HowToPlayPlayerClone, Information, Particle, Player 나머지(충돌처리, 조작 관련 등), PlayManager, Room, RoomConstructor, Sprite, SpriteImporter, StageSelection, Sticker, Title, View 관련 구현
+2. Battery, Block, BreakableBlock, Button, ButtonBlock, FlickingBlock, Goal, GuiLevelButton, GuiMenuButton, HowToPlay*, Information*, Pause, Player, PlayerJump, StageSelection*, Star, Text* 의 bmp파일 디자인
+3. BulletBlock, Player 시간역행 부분 버그 수정
+4. LaserBlock 리뉴얼
 5. 1~5스테이지 레벨 디자인
 
 ### 팀원께서 해주신 부분

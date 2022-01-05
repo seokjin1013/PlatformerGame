@@ -36,25 +36,25 @@ C++20과 콘솔창 출력으로만 만든 플랫포머 게임입니다.
 
 다음은 시작화면입니다.
 
-![image](https://user-images.githubusercontent.com/63408412/147127283-f77a3257-da90-46f3-8651-22c4fa6796ae.png)
+![게임 시작화면](https://user-images.githubusercontent.com/63408412/147127283-f77a3257-da90-46f3-8651-22c4fa6796ae.png)
 
 START를 선택해 스테이지 선택 화면으로 갈 수 있고 HOW를 선택해 조작 방법을 간략히 알아볼 수 있습니다.
 
 다음은 스테이지 선택화면입니다.
 
-![image](https://user-images.githubusercontent.com/63408412/146978418-0681d3dd-15f2-460c-85bb-81551c7291ef.png)
+![게임 스테이지 선택화면](https://user-images.githubusercontent.com/63408412/146978418-0681d3dd-15f2-460c-85bb-81551c7291ef.png)
 
 4개의 난이도로 각각 5개의 스테이지가 있습니다. 튜토리얼 스테이지를 모두 클리어하면 각 난이도마다 첫 번째 스테이지인 6, 11, 16 스테이지가 열립니다.
 
 다음은 조작 방법을 알아보는 화면입니다.
 
-![image](https://user-images.githubusercontent.com/63408412/147127389-37bf1df3-c58a-490c-a2f8-c9e8cf8b08ea.png)
+![게임 조작 방법 확인화면](https://user-images.githubusercontent.com/63408412/147127389-37bf1df3-c58a-490c-a2f8-c9e8cf8b08ea.png)
 
 이해가 되기 쉽도록 애니메이션을 통해 보여드립니다.
 
 스테이지의 자세한 완료 방법은 튜토리얼 스테이지의 표지판에 가까이 가면 알려줍니다.
 
-![image](https://user-images.githubusercontent.com/63408412/146978994-eb94f542-4f2d-44d1-afcd-3ec8c56423a1.png)
+![스테이지 ](https://user-images.githubusercontent.com/63408412/146978994-eb94f542-4f2d-44d1-afcd-3ec8c56423a1.png)
 
 ## 원리
 
